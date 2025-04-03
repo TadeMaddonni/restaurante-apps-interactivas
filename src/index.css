@@ -3,6 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -116,5 +119,35 @@
   }
   body {
     @apply bg-background text-foreground;
+    
   }
+}
+
+
+@font-face {
+  font-family: "Hoves";
+  src: url("assets/fonts/tt_hoves_pro/TT Hoves Pro Trial Thin.ttf") format("truetype");
+  font-weight: 100; /* Thin */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hoves";
+  src: url("assets/fonts/tt_hoves_pro/TT Hoves Pro Trial Light.ttf") format("truetype");
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hoves";
+  src: url("assets/fonts/tt_hoves_pro/TT Hoves Pro Trial Medium.ttf") format("truetype");
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hoves";
+  src: url("assets/fonts/tt_hoves_pro/TT Hoves Pro Trial Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
 }
