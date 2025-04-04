@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 
 const Hero = () => {
 	return (
-		<section className="w-full flex items-center justify-center py-12  bg-[#f7f5f0]">
+		<section className="w-full flex items-center justify-center py-12  bg-background">
 			<div className=" flex flex-col items-center justify-center px-18 lg:px-0 lg:gap-8">
 				<div className="flex flex-col items-center justify-center mb-12">
 					<div className="h-fit w-full flex justify-center items-end gap-12">
@@ -25,15 +25,7 @@ const Hero = () => {
 
 				<div className="flex flex-col lg:flex-row items-center justify-between lg:gap-7">
 					{/* Left - Beef Dish Image */}
-					<div>
-						{/*             
-            <img 
-                src={heroBeefDish} 
-                alt="Delicious beef kebabs" 
-                className="w-full h-auto object-cover"
-                /> 
-            */}
-					</div>
+					<div> </div>
 
 					{/* Center - Green Circle */}
 					<div className="relative cursor-pointer hover:scale-105 transform transition-transform duration-300">
@@ -45,24 +37,10 @@ const Hero = () => {
 
 					{/* Right - Chef and Rating */}
 					<div>
-						{/*     
-                <img 
-                    src={chefImage} 
-                    alt="Chef presenting dish" 
-                    className="w-full h-auto object-cover mb-6"
-                /> 
-            */}
-
 						{/* Rating Section */}
 						<div className="flex items-center gap-6 mt-4">
 							{/* Customer Avatars */}
-							<div className="flex">
-								{/*                
-                    <img src={userAvatar1} alt="Customer" className="w-8 h-8 rounded-full border-2 border-white" />
-                    <img src={userAvatar2} alt="Customer" className="w-8 h-8 rounded-full border-2 border-white -ml-2" />
-                    <img src={userAvatar3} alt="Customer" className="w-8 h-8 rounded-full border-2 border-white -ml-2" /> 
-                */}
-							</div>
+							<div className="flex"> </div>
 						</div>
 					</div>
 				</div>

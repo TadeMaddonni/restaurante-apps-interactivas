@@ -1,0 +1,37 @@
+[
+	{
+		"nombre": "Milanesa a la Napolitana",
+		"precio": 4500,
+		"descripcion": "Clásica milanesa de carne con salsa de tomate, jamón y queso gratinado. Acompañada de papas fritas.",
+		"imagen": "https://example.com/images/milanesa-napolitana.jpg",
+		"categoria": "empanadas"
+	},
+	{
+		"nombre": "Ensalada César",
+		"precio": 3500,
+		"descripcion": "Lechuga romana, pollo grillado, croutons, queso parmesano y aderezo César.",
+		"imagen": "https://example.com/images/ensalada-cesar.jpg",
+		"categoria": "empanadas"
+	},
+	{
+		"nombre": "Pizza Margherita",
+		"precio": 4200,
+		"descripcion": "Pizza de masa madre con salsa de tomate, mozzarella fresca, albahaca y aceite de oliva.",
+		"imagen": "https://example.com/images/pizza-margherita.jpg",
+		"categoria": "empanadas"
+	},
+	{
+		"nombre": "Ravioles de Ricota y Espinaca",
+		"precio": 4800,
+		"descripcion": "Ravioles caseros rellenos de ricota y espinaca, servidos con salsa fileto.",
+		"imagen": "https://example.com/images/ravioles-ricota.jpg",
+		"categoria": "pastas"
+	},
+	{
+		"nombre": "Hamburguesa Doble Bacon",
+		"precio": 5200,
+		"descripcion": "Hamburguesa doble con queso cheddar, panceta crocante, cebolla caramelizada y salsa de la casa.",
+		"imagen": "https://example.com/images/hamburguesa-bacon.jpg",
+		"categoria": "minutas"
+	}
+]
