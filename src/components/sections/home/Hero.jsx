@@ -3,12 +3,12 @@ import { FaStar } from "react-icons/fa";
 const Hero = () => {
 	return (
 		<section className="w-full flex items-center justify-between py-12  bg-[#f7f5f0]">
-			<div className="max-w-7xl mx-auto flex flex-col items-center justify-center px-4 lg:px-0 gap-8">
-				<h1 className="text-4xl md:text-6xl lg:text-[150px] text-[#191514] leading-[120px] font-display font-medium text-center mb-12 tracking-tighter ">
+			<div className="max-w-7xl mx-auto flex flex-col items-center justify-center px-18 lg:px-0 lg:gap-8">
+				<h1 className="text-4xl md:text-6xl lg:text-[150px] text-[#191514] lg:leading-[120px] font-display font-medium text-center mb-12 tracking-tighter ">
 					Famous <br /> beef dishes 
 				</h1>
 
-				<div className="flex flex-col lg:flex-row items-center justify-between gap-7">
+				<div className="flex flex-col lg:flex-row items-center justify-between lg:gap-7">
 					{/* Left - Beef Dish Image */}
 					<div>
 						{/*             
@@ -59,9 +59,10 @@ const Hero = () => {
 						smoke and taste at home.
 					</p>
 					<div className="w-full max-w-[800px] h-[0.5px] bg-[#191514]" />
-					<div className="flex justify-center items-center w-full max-w-[700px]">
+					<div className="flex justify-between items-center w-full max-w-[800px]">
+
 						{/* Customers */}
-						<div className="flex gap-4  justify-center items-center">
+						<div className="flex gap-4  justify-center items-center w-[175px]">
 							<div className="relative w-12 h-10">
 								<div className="absolute left-0 w-7 h-7 rounded-full bg-[#1a472a] flex items-center justify-center">
 									{" "}
@@ -83,7 +84,7 @@ const Hero = () => {
 						</div>
 
 						{/* Reviews */}
-						<div className="flex flex-1/2 flex-col items-center justify-center gap-2 mr-6">
+						<div className="flex flex-1 flex-col items-center justify-center gap-2  ">
 							<span className="text-4xl font-display">4.9</span>
 							<div className="flex ml-2">
 								{[1, 2, 3, 4, 5].map((star) => (
@@ -96,7 +97,7 @@ const Hero = () => {
 						</div>
 
 						{/* Dishes */}
-						<div className="flex gap-4 items-center">
+						<div className="flex gap-4 items-center w-[175px]">
 							<div className="relative w-12 h-10">
 								<div className="absolute left-0 w-7 h-7 rounded-full bg-[#1a472a] flex items-center justify-center">
 									{" "}
