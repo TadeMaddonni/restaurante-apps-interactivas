@@ -9,6 +9,10 @@ Ubicarse en la carpeta correcta
 ```
   cd restaurante-apps-interactivas
 ```
+Instalar dependencias
+```
+  npm install
+```
 Ejecutar el proyecto en modo desarrollo
 ```
   npm run dev
