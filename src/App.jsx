@@ -8,8 +8,11 @@ function App() {
 		<>
 			<main className="flex flex-col gap-4  justify-start min-h-screen p-4 bg-background">
 				<Header />
-				<h1 className="font-bold text-3xl" >Restaurante App</h1>
-				<Title text="Restaurante app" className=""/>
+				<div className="flex gap-2">
+					<h1 className="font-bold text-3xl font-display" >Restaurante App</h1>
+					<h1 className="font-bold text-3xl " >Restaurante App</h1>
+				</div>
+				<Title text="Restaurante app" className={"font-display"}/>
 			</main>
 		</>
 	);
