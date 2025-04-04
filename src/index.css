@@ -39,8 +39,9 @@
 
   --font-display: "Hoves";
 
+
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #f7f5f0;
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.25);
@@ -80,6 +81,8 @@
   --card-foreground: oklch(0.985 0.001 106.423);
   --popover: oklch(0.216 0.006 56.043);
   --popover-foreground: oklch(0.985 0.001 106.423);
+    --tertiary-grey: #adadad;
+  --primary-green: #1a472a;
   --primary: oklch(0.923 0.003 48.717);
   --primary-foreground: oklch(0.216 0.006 56.043);
   --secondary: oklch(0.268 0.007 34.298);
@@ -118,6 +121,8 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --tertiary-grey: #adadad;
+  --primary-green: #1a472a;
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
