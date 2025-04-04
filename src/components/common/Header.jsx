@@ -17,25 +17,25 @@ const Header = () => {
 					{/* Menú alineado a la izquierda */}
 					<div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center ">
 						<NavigationMenuItem>
-							<NavigationMenuLink href="/menu">Menu</NavigationMenuLink>
+							<NavigationMenuLink href="/menu">MENU</NavigationMenuLink>
 						</NavigationMenuItem>
 
 						<NavigationMenuItem>
-							<NavigationMenuLink href="/reseñas">Reseñas</NavigationMenuLink>
+							<NavigationMenuLink href="/reseñas">RESEÑAS</NavigationMenuLink>
 						</NavigationMenuItem>
 					</div>
 					<div className="center flex items-center justify-center ml-10 gap-2">
 						{/* Logo del restaurante */}
 						<UtensilsCrossed className="h-5 w-5" />
-						<span className="font-bold font-display ">Restaurante</span>
+						<span className="font-bold font-display ">RESTAURANTE</span>
 					</div>
 					{/* Menú alineado a la derecha */}
 					<div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center ">
 						<NavigationMenuLink href="/testimonios">
-							Testimonios
+							TESTINOMIOS
 						</NavigationMenuLink>
 						<NavigationMenuItem>
-							<NavigationMenuLink href="/contacto">Contacto</NavigationMenuLink>
+							<NavigationMenuLink href="/contacto">CONTACTO</NavigationMenuLink>
 						</NavigationMenuItem>
 					</div>
 				</ul>
