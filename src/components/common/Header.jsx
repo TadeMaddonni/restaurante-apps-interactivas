@@ -11,7 +11,7 @@ import { UtensilsCrossed } from "lucide-react";
 
 const Header = () => {
 	return (
-		<header className="w-full">
+		<header className="w-full hidden md:block">
 			<NavigationMenu className="px-4 py-3 flex w-full max-w-screen">
 				<ul className="flex justify-between w-full max-w-[1200px]">
 					{/* Menú alineado a la izquierda */}
