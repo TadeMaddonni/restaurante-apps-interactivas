@@ -2,42 +2,34 @@ import { FaStar } from "react-icons/fa";
 
 const Hero = () => {
 	return (
-		<section className="w-full flex items-center justify-center py-12  bg-[#f7f5f0]">
-			<div className=" flex flex-col items-center justify-center px-18 lg:px-0 lg:gap-8">
+		<section className="w-full md:min-h-screen flex items-center justify-center py-12 md:py-12  bg-[#f7f5f0]">
+			<div className=" flex flex-col items-center justify-center px-4 lg:px-0 lg:gap-8 w-full">
 				<div className="flex flex-col items-center justify-center mb-12">
-					<div className="h-fit w-full flex justify-center items-end gap-12">
-						<p className="text-4xl md:text-6xl lg:text-[150px] text-[#191514] lg:leading-[120px] font-display font-medium text-center  tracking-tighter ">
+					<div className="h-fit w-full flex justify-center items-end gap-3 md:gap-12">
+						<p className="text-5xl md:text-6xl lg:text-[150px] text-[#191514] lg:leading-[120px] font-display font-medium text-center  tracking-tighter ">
 							Auténticos <br />
 						</p>
-						<div className="relative cursor-pointer  bg-[#1a472a] h-[110px] w-[250px] rounded-full overflow-hidden">
+						<div className="relative cursor-pointer  bg-[#1a472a] w-[120px] h-[40px] md:h-[110px] md:w-[250px] rounded-full overflow-hidden">
 							<img
-								className="w-[250px] h-[110px] absolute object-cover top-0"
+								className=" md:w-[250px] md:h-[110px] absolute object-cover top-0"
 								src="/assets/hero-image.png"
 								alt=""
 							/>
 						</div>
 					</div>
 
-					<p className="w-full text-4xl md:text-6xl lg:text-[150px] text-[#191514] lg:leading-[120px] font-display font-medium   tracking-tighter ">
+					<p className="w-full text-5xl md:text-6xl lg:text-[150px] text-[#191514] lg:leading-[120px] font-display font-medium   tracking-tighter ">
 						platos argentinos
 					</p>
 				</div>
 
-				<div className="flex flex-col lg:flex-row items-center justify-between lg:gap-7">
+				<div className="flex flex-col w-full lg:flex-row items-center justify-between lg:gap-7">
 					{/* Left - Beef Dish Image */}
-					<div>
-						{/*             
-            <img 
-                src={heroBeefDish} 
-                alt="Delicious beef kebabs" 
-                className="w-full h-auto object-cover"
-                /> 
-            */}
-					</div>
+					<div> </div>
 
 					{/* Center - Green Circle */}
 					<div className="relative cursor-pointer hover:scale-105 transform transition-transform duration-300">
-						<div className="bg-[#1a472a] text-white rounded-full w-32 h-32 flex flex-col items-center justify-center">
+						<div className="bg-[#1a472a] text-white rounded-full w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center">
 							<span className="text-md font-display font-medium">Explore</span>
 							<span className="text-md font-display font-medium">menu</span>
 						</div>
@@ -45,30 +37,16 @@ const Hero = () => {
 
 					{/* Right - Chef and Rating */}
 					<div>
-						{/*     
-                <img 
-                    src={chefImage} 
-                    alt="Chef presenting dish" 
-                    className="w-full h-auto object-cover mb-6"
-                /> 
-            */}
-
 						{/* Rating Section */}
 						<div className="flex items-center gap-6 mt-4">
 							{/* Customer Avatars */}
-							<div className="flex">
-								{/*                
-                    <img src={userAvatar1} alt="Customer" className="w-8 h-8 rounded-full border-2 border-white" />
-                    <img src={userAvatar2} alt="Customer" className="w-8 h-8 rounded-full border-2 border-white -ml-2" />
-                    <img src={userAvatar3} alt="Customer" className="w-8 h-8 rounded-full border-2 border-white -ml-2" /> 
-                */}
-							</div>
+							<div className="flex"> </div>
 						</div>
 					</div>
 				</div>
 
 				<div className="flex flex-col items-center justify-center gap-7 w-full max-w-[980px]">
-					<p className="text-left mt-8  mx-auto text-[#191514]">
+					<p className="text-center mt-8  mx-auto text-[#191514] w-[100%]">
 						Nuestra cocina rinde homenaje a los sabores auténticos de Argentina,
 						combinando técnicas de alta gastronomía con ingredientes
 						seleccionados de productores locales. Desde los clásicos
@@ -113,7 +91,7 @@ const Hero = () => {
 						</div>
 
 						{/* Dishes */}
-						<div className="flex gap-4 items-center w-[175px]">
+						<div className="hidden md:flex gap-4 items-center w-[175px]">
 							<div className="relative w-12 h-10">
 								<div className="absolute left-0 w-7 h-7 rounded-full bg-[#1a472a] flex items-center justify-center">
 									{" "}
