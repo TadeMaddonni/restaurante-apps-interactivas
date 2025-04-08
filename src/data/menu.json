@@ -1,0 +1,211 @@
+{
+    "Entrantes": [
+      {
+        "nombre": "Provoleta con orégano",
+        "descripcion": "Queso provolone derretido con orégano, acompañado de pan de campo.",
+        "ingredientes": ["Queso provolone", "Orégano", "Pan"],
+        "alergenos": ["Lácteos", "Gluten"],
+        "precio": 7500
+      },
+      {
+        "nombre": "Empanadas criollas",
+        "descripcion": "Empanadas tradicionales de carne cortada a cuchillo.",
+        "ingredientes": ["Carne vacuna", "Cebolla", "Masa de empanada"],
+        "alergenos": ["Gluten"],
+        "precio": 7000
+      },
+      {
+        "nombre": "Tabla de fiambres",
+        "descripcion": "Variedad de fiambres artesanales con pan casero.",
+        "ingredientes": ["Salame", "Jamón crudo", "Queso", "Pan"],
+        "alergenos": ["Lácteos", "Gluten"],
+        "precio": 9500
+      }
+    ],
+    "Ensaladas": [
+      {
+        "nombre": "Ensalada César",
+        "descripcion": "Lechuga, pollo grillado, croutones y aderezo César.",
+        "ingredientes": ["Lechuga", "Pollo", "Croutones", "Queso parmesano", "Aderezo César"],
+        "alergenos": ["Lácteos", "Gluten"],
+        "precio": 9000
+      },
+      {
+        "nombre": "Ensalada Caprese",
+        "descripcion": "Tomate, mozzarella fresca y albahaca con aceite de oliva.",
+        "ingredientes": ["Tomate", "Mozzarella", "Albahaca", "Aceite de oliva"],
+        "alergenos": ["Lácteos"],
+        "precio": 8500
+      },
+      {
+        "nombre": "Ensalada del huerto",
+        "descripcion": "Mix de hojas verdes, zanahoria, remolacha y tomate cherry.",
+        "ingredientes": ["Hojas verdes", "Zanahoria", "Remolacha", "Tomate cherry"],
+        "alergenos": [],
+        "precio": 8000
+      }
+    ],
+    "Platos Principales": {
+      "Carnes Rojas": [
+        {
+          "nombre": "Bife de chorizo a la parrilla",
+          "descripcion": "Bife jugoso cocido a las brasas, acompañado de papas rústicas.",
+          "ingredientes": ["Bife de chorizo", "Sal", "Papas"],
+          "alergenos": [],
+          "precio": 17000
+        },
+        {
+          "nombre": "Milanesa de carne a caballo",
+          "descripcion": "Milanesa de nalga con huevos fritos y papas fritas.",
+          "ingredientes": ["Carne vacuna", "Pan rallado", "Huevo", "Papas"],
+          "alergenos": ["Gluten", "Huevo"],
+          "precio": 14500
+        },
+        {
+          "nombre": "Lomo a la pimienta",
+          "descripcion": "Lomo tierno con salsa de pimienta negra, acompañado de puré.",
+          "ingredientes": ["Lomo", "Pimienta negra", "Crema", "Papas"],
+          "alergenos": ["Lácteos"],
+          "precio": 16500
+        }
+      ],
+      "Carnes Blancas": [
+        {
+          "nombre": "Pollo al ajillo",
+          "descripcion": "Pechugas doradas al horno con ajo y papas al romero.",
+          "ingredientes": ["Pollo", "Ajo", "Papas", "Romero"],
+          "alergenos": [],
+          "precio": 13000
+        },
+        {
+          "nombre": "Milanesa de pollo con papas fritas",
+          "descripcion": "Milanesa crocante de pollo con guarnición de papas.",
+          "ingredientes": ["Pollo", "Pan rallado", "Huevo", "Papas"],
+          "alergenos": ["Gluten", "Huevo"],
+          "precio": 12500
+        },
+        {
+          "nombre": "Pollo al curry con arroz",
+          "descripcion": "Cubos de pollo salteados en salsa de curry suave, con arroz blanco.",
+          "ingredientes": ["Pollo", "Curry", "Crema", "Arroz"],
+          "alergenos": ["Lácteos"],
+          "precio": 13500
+        }
+      ],
+      "Pescados": [
+        {
+          "nombre": "Salmón grillado con vegetales",
+          "descripcion": "Filete de salmón a la plancha con mix de vegetales al vapor.",
+          "ingredientes": ["Salmón", "Calabaza", "Brócoli", "Zanahoria"],
+          "alergenos": ["Pescado"],
+          "precio": 19000
+        },
+        {
+          "nombre": "Trucha al limón",
+          "descripcion": "Trucha fresca con salsa cítrica y papas al horno.",
+          "ingredientes": ["Trucha", "Limón", "Manteca", "Papas"],
+          "alergenos": ["Pescado", "Lácteos"],
+          "precio": 17500
+        },
+        {
+          "nombre": "Paella de mariscos",
+          "descripcion": "Arroz con mariscos, azafrán y verduras al estilo español.",
+          "ingredientes": ["Arroz", "Calamares", "Camarones", "Mejillones", "Azafrán", "Morrón"],
+          "alergenos": ["Mariscos"],
+          "precio": 20000
+        }
+      ]
+    },
+    "Pastas": [
+      {
+        "nombre": "Sorrentinos de jamón y queso",
+        "descripcion": "Sorrentinos caseros con salsa mixta.",
+        "ingredientes": ["Masa de pasta", "Jamón", "Queso", "Salsa mixta"],
+        "alergenos": ["Gluten", "Lácteos"],
+        "precio": 12000
+      },
+      {
+        "nombre": "Ravioles de verdura",
+        "descripcion": "Ravioles rellenos de espinaca y ricota con salsa bolognesa.",
+        "ingredientes": ["Espinaca", "Ricota", "Carne", "Salsa de tomate", "Masa de pasta"],
+        "alergenos": ["Gluten", "Lácteos"],
+        "precio": 11500
+      },
+      {
+        "nombre": "Fettuccine al pesto",
+        "descripcion": "Fideos con salsa pesto de albahaca y nueces.",
+        "ingredientes": ["Fideos", "Albahaca", "Aceite de oliva", "Nueces", "Queso parmesano"],
+        "alergenos": ["Gluten", "Frutos secos", "Lácteos"],
+        "precio": 11000
+      }
+    ],
+    "Postres": [
+      {
+        "nombre": "Flan casero",
+        "descripcion": "Clásico flan de huevo con dulce de leche o crema.",
+        "ingredientes": ["Huevo", "Leche", "Azúcar"],
+        "alergenos": ["Huevo", "Lácteos"],
+        "precio": 5000
+      },
+      {
+        "nombre": "Panqueque de dulce de leche",
+        "descripcion": "Panqueque tibio relleno de dulce de leche.",
+        "ingredientes": ["Harina", "Huevo", "Leche", "Dulce de leche"],
+        "alergenos": ["Gluten", "Huevo", "Lácteos"],
+        "precio": 5500
+      },
+      {
+        "nombre": "Helado artesanal",
+        "descripcion": "2 bochas a elección.",
+        "ingredientes": ["Varía según sabor"],
+        "alergenos": ["Lácteos"],
+        "precio": 6000
+      }
+    ],
+    "Bebidas Alcohólicas": [
+      {
+        "nombre": "Vino Malbec (copa)",
+        "descripcion": "Vino tinto Malbec, copa de 150ml.",
+        "ingredientes": ["Uvas Malbec"],
+        "alergenos": [],
+        "precio": 4500
+      },
+      {
+        "nombre": "Cerveza artesanal (botella)",
+        "descripcion": "Cerveza rubia artesanal en botella de 500ml.",
+        "ingredientes": ["Cebada", "Lúpulo", "Agua", "Levadura"],
+        "alergenos": ["Gluten"],
+        "precio": 5000
+      },
+      {
+        "nombre": "Fernet con coca",
+        "descripcion": "Trago clásico argentino con Fernet y Coca-Cola.",
+        "ingredientes": ["Fernet", "Coca-Cola"],
+        "alergenos": [],
+        "precio": 4800
+      }
+    ],
+    "Bebidas sin Alcohol": [
+      {
+        "nombre": "Agua mineral",
+        "descripcion": "Botella de agua sin gas 500ml.",
+        "ingredientes": ["Agua"],
+        "alergenos": [],
+        "precio": 2500
+      },
+      {
+        "nombre": "Gaseosa línea Coca-Cola (botella)",
+        "descripcion": "Botella de 500ml a elección.",
+        "ingredientes": ["Varía según bebida"],
+        "alergenos": [],
+        "precio": 3000
+      },
+      {
+        "nombre": "Jugo exprimido de naranja",
+        "descripcion": "Jugo natural recién exprimido.",
+        "ingredientes": ["Naranja"],
+        "alergenos": [],
+        "precio": 3500
+      }
+    ]
+  }
