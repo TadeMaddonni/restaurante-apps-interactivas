@@ -1,21 +1,21 @@
 import Header from "./components/common/Header.jsx";
 import Hero from "./components/sections/home/Hero";
 import SelectedDishes from "./components/sections/home/Selected-dishes";
-import OurEnvironment  from "./components/sections/home/our-enviroment.jsx";
+import OurEnvironment from "./components/sections/home/our-enviroment.jsx";
 import Location from "./components/sections/home/Location.jsx";
 import Footer from "./components/common/Footer.jsx";
-import Destacados from "./components/sections/home/Destacados.jsx";	
+import Destacados from "./components/sections/home/Destacados.jsx";
 
 function App() {
 	return (
 		<>
 			<Header />
-			<main className="flex flex-col gap-4  justify-start min-h-screen  bg-background">
+			<main className="flex flex-col justify-start min-h-screen  bg-background">
 				<Hero />
-				<OurEnvironment/>	
-				<Destacados/>
+				<OurEnvironment />
+				<Destacados />
 				<SelectedDishes />
-				<Location/>
+				<Location />
 				<Footer />
 			</main>
 		</>

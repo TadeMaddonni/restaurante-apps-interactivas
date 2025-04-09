@@ -2,7 +2,7 @@ export default function Item({ title, description, image, setImage }) {
 	const handleClick = () => {
 		setImage(image);
 	};
-
+	console.log(title, description, image);
 	return (
 		<div
 			className="w-full  pb-2 flex flex-col gap-4 cursor-pointer"
