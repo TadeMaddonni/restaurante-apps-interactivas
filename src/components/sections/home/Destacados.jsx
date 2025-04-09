@@ -10,6 +10,7 @@ const Destacados = () => {
     const [selectedDishes, setSelectedDishes] = useState([]); // Platos filtrados
     const [selectedItem, setSelectedItem] = useState(null); // Plato seleccionado
     const [selectedImage, setSelectedImage] = useState("hero-image.png"); // Imagen seleccionada
+    const [isImageLoading, setIsImageLoading] = useState(true); // Estado de carga de la imagen
 
     // Cargar categorías al montar el componente
     useEffect(() => {
@@ -27,8 +28,13 @@ const Destacados = () => {
         if (filteredDishes.length > 0) {
             setSelectedItem(filteredDishes[0].id); // Selecciona el primer plato
             setSelectedImage(filteredDishes[0].imagen || "hero-image.png"); // Selecciona su imagen
+            setIsImageLoading(true); // Reinicia el estado de carga de la imagen
         }
     }, [selectedCategory]);
+
+    const handleImageLoad = () => {
+        setIsImageLoading(false); // Marca la imagen como cargada
+    };
 
     return (
         <section className="bg-[#EDE7D4] py-20 px-6 md:px-12 lg:px-16 text-left w-full space-y-12 md:gap-6 flex flex-col justify-center items-center">
@@ -90,7 +96,10 @@ const Destacados = () => {
                                 description={dish.descripcion}
                                 price={dish.precio}
                                 image={dish.imagen || "default-image.png"}
-                                setProductImage={setSelectedImage}
+                                setProductImage={(image) => {
+                                    setSelectedImage(image);
+                                    setIsImageLoading(true); // Reinicia el estado de carga de la imagen
+                                }}
                                 id={dish.id}
                                 selectedItem={selectedItem} // Pasar el estado seleccionado
                                 setSelectedItem={setSelectedItem} // Pasar la función para actualizar el seleccionado
@@ -98,11 +107,19 @@ const Destacados = () => {
                         ))}
                     </div>
                 </div>
-                <div className="md:pl-8 w-full md:w-1/2 h-full">
+                <div className="md:pl-8 w-full md:w-1/2 h-full relative">
+                    {isImageLoading && (
+                        <div className="absolute inset-0 bg-gray-200 flex items-center justify-center rounded-3xl">
+                            <span className="text-gray-500">Cargando...</span>
+                        </div>
+                    )}
                     <img
                         src={selectedImage}
                         alt="Plato seleccionado"
-                        className="rounded-3xl object-cover w-full h max-h-80"
+                        className={`rounded-3xl object-cover w-full h max-h-80 transition-opacity duration-500 ${
+                            isImageLoading ? "opacity-0" : "opacity-100"
+                        }`}
+                        onLoad={handleImageLoad}
                     />
                 </div>
             </div>
