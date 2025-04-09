@@ -1,272 +1,324 @@
 [
-    {
-      "id": 1,
-      "nombre": "Provoleta con orégano",
-      "descripcion": "Queso provolone derretido con orégano, acompañado de pan de campo.",
-      "ingredientes": ["Queso provolone", "Orégano", "Pan"],
-      "alergenos": ["Lácteos", "Gluten"],
-      "precio": 7500,
-      "id_categoria": 1,
-      "imagen": "https://www.recetaslider.cl/wp-content/uploads/2021/06/principal_5d3b67192d4b3.jpg"
-    },
-    {
-      "id": 2,
-      "nombre": "Empanadas criollas",
-      "descripcion": "Empanadas tradicionales de carne cortada a cuchillo.",
-      "ingredientes": ["Carne vacuna", "Cebolla", "Masa de empanada"],
-      "alergenos": ["Gluten"],
-      "precio": 7000,
-      "id_categoria": 1,
-      "imagen": "https://imag.bonviveur.com/empanadas-criollas.jpg"
-    },
-    {
-      "id": 3,
-      "nombre": "Tabla de fiambres",
-      "descripcion": "Variedad de fiambres artesanales con pan casero.",
-      "ingredientes": ["Salame", "Jamón crudo", "Queso", "Pan"],
-      "alergenos": ["Lácteos", "Gluten"],
-      "precio": 9500,
-      "id_categoria": 1,
-      "imagen":"https://latablita.com.ar/wp-content/uploads/2020/09/Tabla-Sabores-del-sur-express-2.jpg"
-    },
-    {
-      "id": 4,
-      "nombre": "Ensalada César",
-      "descripcion": "Lechuga, pollo grillado, croutones y aderezo César.",
-      "ingredientes": ["Lechuga", "Pollo", "Croutones", "Queso parmesano", "Aderezo César"],
-      "alergenos": ["Lácteos", "Gluten"],
-      "precio": 9000,
-      "id_categoria": 2,
-      "imagen":"https://sarasellos.com/wp-content/uploads/2024/07/ensalada-cesar1-1024x684.jpg"
-    },
-    {
-      "id": 5,
-      "nombre": "Ensalada Caprese",
-      "descripcion": "Tomate, mozzarella fresca y albahaca con aceite de oliva.",
-      "ingredientes": ["Tomate", "Mozzarella", "Albahaca", "Aceite de oliva"],
-      "alergenos": ["Lácteos"],
-      "precio": 8500,
-      "id_categoria": 2,
-      "imagen":"https://deliciaskitchen.b-cdn.net/wp-content/uploads/2022/07/ensalada-caprese-receta-original-italiana.jpg"
-    },
-    {
-      "id": 6,
-      "nombre": "Ensalada del huerto",
-      "descripcion": "Mix de hojas verdes, zanahoria, remolacha y tomate cherry.",
-      "ingredientes": ["Hojas verdes", "Zanahoria", "Remolacha", "Tomate cherry"],
-      "alergenos": [],
-      "precio": 8000,
-      "id_categoria": 2,
-      "imagen":"https://whouse.com.mx/cdn/shop/articles/ensalada_del_huerto_1080x.jpg?v=1694736055"
-    },
-    {
-      "id": 7,
-      "nombre": "Bife de chorizo a la parrilla",
-      "descripcion": "Bife jugoso cocido a las brasas, acompañado de papas rústicas.",
-      "ingredientes": ["Bife de chorizo", "Sal", "Papas"],
-      "alergenos": [],
-      "precio": 17000,
-      "id_categoria": 3,
-      "imagen":"https://api.carneargentina.org.ar/web/uploads/recipes/60/gallery/0-desktop.webp?1705063534"
-    },
-    {
-      "id": 8,
-      "nombre": "Milanesa de carne a caballo",
-      "descripcion": "Milanesa de nalga con huevos fritos y papas fritas.",
-      "ingredientes": ["Carne vacuna", "Pan rallado", "Huevo", "Papas"],
-      "alergenos": ["Gluten", "Huevo"],
-      "precio": 14500,
-      "id_categoria": 3,
-      "imagen":"https://media.lmneuquen.com/p/7e0c76e74c99f6ec8c82e3fb61c43116/adjuntos/195/imagenes/005/541/0005541097/1200x675/smart/milanesas-a-caballojpg.jpg"
-    },
-    {
-      "id": 9,
-      "nombre": "Lomo a la pimienta",
-      "descripcion": "Lomo tierno con salsa de pimienta negra, acompañado de puré.",
-      "ingredientes": ["Lomo", "Pimienta negra", "Crema", "Papas"],
-      "alergenos": ["Lácteos"],
-      "precio": 16500,
-      "id_categoria": 3,
-      "imagen":"https://truffle-assets.tastemadecontent.net/4aaaf054-lomo-a-la-pimienta_1920x1080.jpg"
-    },
-    {
-      "id": 10,
-      "nombre": "Pollo al ajillo",
-      "descripcion": "Pechugas doradas al horno con ajo y papas al romero.",
-      "ingredientes": ["Pollo", "Ajo", "Papas", "Romero"],
-      "alergenos": [],
-      "precio": 13000,
-      "id_categoria": 3,
-      "imagen":"https://invitadoinvierno.com/wp-content/uploads/2021/02/receta-pollo-ajillo-tradicional-1.jpg"
-    },
-    {
-      "id": 11,
-      "nombre": "Milanesa de pollo con papas fritas",
-      "descripcion": "Milanesa crocante de pollo con guarnición de papas.",
-      "ingredientes": ["Pollo", "Pan rallado", "Huevo", "Papas"],
-      "alergenos": ["Gluten", "Huevo"],
-      "precio": 12500,
-      "id_categoria": 3,
-      "imagen":"https://images.ctfassets.net/uu4q7lk7kqth/1s0q9wfjWxUdjjSvIgSQZw/34d8ad0c0b8bf7bfbf84433754c72f1b/milanesa-de-pollo-con-papa-fritas.jpg?fm=webp&q=95"
-    },
-    {
-      "id": 12,
-      "nombre": "Pollo al curry con arroz",
-      "descripcion": "Cubos de pollo salteados en salsa de curry suave, con arroz blanco.",
-      "ingredientes": ["Pollo", "Curry", "Crema", "Arroz"],
-      "alergenos": ["Lácteos"],
-      "precio": 13500,
-      "id_categoria": 3,
-      "imagen":"https://cdn5.recetasdeescandalo.com/wp-content/uploads/2020/10/Pollo-al-curry-y-arroz-basmati-con-Thermomix-exotico-y-delicioso.jpg"
-    },
-    {
-      "id": 13,
-      "nombre": "Salmón grillado con vegetales",
-      "descripcion": "Filete de salmón a la plancha con mix de vegetales al vapor.",
-      "ingredientes": ["Salmón", "Calabaza", "Brócoli", "Zanahoria"],
-      "alergenos": ["Pescado"],
-      "precio": 19000,
-      "id_categoria": 3,
-      "imagen":"https://www.recetasnestle.cl/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/dc90291f0ad3ffceef101ce9f6eddc9d.jpg?itok=xEdKc4gn"
-    },
-    {
-      "id": 14,
-      "nombre": "Trucha al limón",
-      "descripcion": "Trucha fresca con salsa cítrica y papas al horno.",
-      "ingredientes": ["Trucha", "Limón", "Manteca", "Papas"],
-      "alergenos": ["Pescado", "Lácteos"],
-      "precio": 17500,
-      "id_categoria": 3,
-      "imagen":"https://alicante.com.ar/wp-content/uploads/2022/06/447_receta.jpg"
-    },
-    {
-      "id": 15,
-      "nombre": "Paella de mariscos",
-      "descripcion": "Arroz con mariscos, azafrán y verduras al estilo español.",
-      "ingredientes": ["Arroz", "Calamares", "Camarones", "Mejillones", "Azafrán", "Morrón"],
-      "alergenos": ["Mariscos"],
-      "precio": 20000,
-      "id_categoria": 3,
-      "imagen":"https://mahatmarice.com/wp-content/uploads/2019/08/Authentic-Spanish-Paella.jpg"
-    },
-    {
-      "id": 16,
-      "nombre": "Sorrentinos de jamón y queso",
-      "descripcion": "Sorrentinos caseros con salsa mixta.",
-      "ingredientes": ["Masa de pasta", "Jamón", "Queso", "Salsa mixta"],
-      "alergenos": ["Gluten", "Lácteos"],
-      "precio": 12000,
-      "id_categoria": 4,
-      "imagen":"https://acdn-us.mitiendanube.com/stores/001/497/896/products/sorrentinos-de-jamon-y-queso-con-salsa-bolognesa1-b7161a06c80e9e492a16467954786599-640-0.jpg"
-    },
-    {
-      "id": 17,
-      "nombre": "Ravioles de verdura",
-      "descripcion": "Ravioles rellenos de espinaca y ricota con salsa bolognesa.",
-      "ingredientes": ["Espinaca", "Ricota", "Carne", "Salsa de tomate", "Masa de pasta"],
-      "alergenos": ["Gluten", "Lácteos"],
-      "precio": 11500,
-      "id_categoria": 4,
-      "imagen":"https://comedera.com/wp-content/uploads/sites/9/2022/08/raviolis-de-queso-y-espinacas.jpg"
-    },
-    {
-      "id": 18,
-      "nombre": "Fettuccine al pesto",
-      "descripcion": "Fideos con salsa pesto de albahaca y nueces.",
-      "ingredientes": ["Fideos", "Albahaca", "Aceite de oliva", "Nueces", "Queso parmesano"],
-      "alergenos": ["Gluten", "Frutos secos", "Lácteos"],
-      "precio": 11000,
-      "id_categoria": 4,
-      "imagen":"https://www.chiselandfork.com/wp-content/uploads/2024/02/tagliatelle-pesto-1.jpg"
-    },
-    {
-      "id": 19,
-      "nombre": "Flan casero",
-      "descripcion": "Clásico flan de huevo con dulce de leche o crema.",
-      "ingredientes": ["Huevo", "Leche", "Azúcar"],
-      "alergenos": ["Huevo", "Lácteos"],
-      "precio": 5000,
-      "id_categoria": 5,
-      "imagen":"https://imag.bonviveur.com/flan-de-vainilla-en-el-plato.jpg"
-    },
-    {
-      "id": 20,
-      "nombre": "Panqueque de dulce de leche",
-      "descripcion": "Panqueque tibio relleno de dulce de leche.",
-      "ingredientes": ["Harina", "Huevo", "Leche", "Dulce de leche"],
-      "alergenos": ["Gluten", "Huevo", "Lácteos"],
-      "precio": 5500,
-      "id_categoria": 5,
-      "imagen":"https://i.blogs.es/2e3e5d/panqueques-con-dulce-de-leche/1366_2000.jpg"
-    },
-    {
-      "id": 21,
-      "nombre": "Helado artesanal",
-      "descripcion": "2 bochas a elección.",
-      "ingredientes": ["Varía según sabor"],
-      "alergenos": ["Lácteos"],
-      "precio": 6000,
-      "id_categoria": 5,
-      "imagen":"https://es.cravingsjournal.com/wp-content/uploads/2022/01/helado-de-yogurt-y-frutos-rojos-6.jpg"
-    },
-    {
-      "id": 22,
-      "nombre": "Vino Malbec (copa)",
-      "descripcion": "Vino tinto Malbec, copa de 150ml.",
-      "ingredientes": ["Uvas Malbec"],
-      "alergenos": [],
-      "precio": 4500,
-      "id_categoria": 6,
-      "imagen":"https://http2.mlstatic.com/D_Q_NP_993500-MLU71267142491_082023-O.webp"
-    },
-    {
-      "id": 23,
-      "nombre": "Cerveza artesanal (botella)",
-      "descripcion": "Cerveza rubia artesanal en botella de 500ml.",
-      "ingredientes": ["Cebada", "Lúpulo", "Agua", "Levadura"],
-      "alergenos": ["Gluten"],
-      "precio": 5000,
-      "id_categoria": 6,
-      "imagen":"https://economis.com.ar/wp-content/uploads/2022/02/Cerveza-artesanal-3-1.jpg"
-    },
-    {
-      "id": 24,
-      "nombre": "Fernet con coca",
-      "descripcion": "Trago clásico argentino con Fernet y Coca-Cola.",
-      "ingredientes": ["Fernet", "Coca-Cola"],
-      "alergenos": [],
-      "precio": 4800,
-      "id_categoria": 6,
-      "imagen":"https://api.argentina.travel/files/images/0de7b753-eadc-4edb-be91-15e34f8992fd-Fernet_baja.jpg"
-    },
-    {
-      "id": 25,
-      "nombre": "Agua mineral",
-      "descripcion": "Botella de agua sin gas 500ml.",
-      "ingredientes": ["Agua"],
-      "alergenos": [],
-      "precio": 2500,
-      "id_categoria": 7,
-      "imagen":"https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3040045_f.jpg"
-    },
-    {
-      "id": 26,
-      "nombre": "Gaseosa línea Coca-Cola (botella)",
-      "descripcion": "Botella de 500ml a elección.",
-      "ingredientes": ["Varía según bebida"],
-      "alergenos": [],
-      "precio": 3000,
-      "id_categoria": 7,
-      "imagen":"https://modomarketar.vteximg.com.br/arquivos/ids/172145/Coca-Cola-Botella-X-500-Ml-1-4159.jpg?v=638685885702570000"
-    },
-    {
-      "id": 27,
-      "nombre": "Jugo exprimido de naranja",
-      "descripcion": "Jugo natural recién exprimido.",
-      "ingredientes": ["Naranja"],
-      "alergenos": [],
-      "precio": 3500,
-      "id_categoria": 7,
-      "imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOSs0izBVODzqPucMrISv-KSlG7UbnT4Rh3g&s"
-    }
-  ]
+	{
+		"id": 1,
+		"nombre": "Provoleta con orégano",
+		"descripcion": "Queso provolone derretido con orégano, acompañado de pan de campo.",
+		"ingredientes": ["Queso provolone", "Orégano", "Pan"],
+		"alergenos": ["Lácteos", "Gluten"],
+		"precio": 7500,
+		"id_categoria": 1,
+		"imagen": "https://www.recetaslider.cl/wp-content/uploads/2021/06/principal_5d3b67192d4b3.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 2,
+		"nombre": "Empanadas criollas",
+		"descripcion": "Empanadas tradicionales de carne cortada a cuchillo.",
+		"ingredientes": ["Carne vacuna", "Cebolla", "Masa de empanada"],
+		"alergenos": ["Gluten"],
+		"precio": 7000,
+		"id_categoria": 1,
+		"imagen": "https://imag.bonviveur.com/empanadas-criollas.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 3,
+		"nombre": "Tabla de fiambres",
+		"descripcion": "Variedad de fiambres artesanales con pan casero.",
+		"ingredientes": ["Salame", "Jamón crudo", "Queso", "Pan"],
+		"alergenos": ["Lácteos", "Gluten"],
+		"precio": 9500,
+		"id_categoria": 1,
+		"imagen": "https://latablita.com.ar/wp-content/uploads/2020/09/Tabla-Sabores-del-sur-express-2.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 4,
+		"nombre": "Ensalada César",
+		"descripcion": "Lechuga, pollo grillado, croutones y aderezo César.",
+		"ingredientes": [
+			"Lechuga",
+			"Pollo",
+			"Croutones",
+			"Queso parmesano",
+			"Aderezo César"
+		],
+		"alergenos": ["Lácteos", "Gluten"],
+		"precio": 9000,
+		"id_categoria": 2,
+		"imagen": "https://sarasellos.com/wp-content/uploads/2024/07/ensalada-cesar1-1024x684.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 5,
+		"nombre": "Ensalada Caprese",
+		"descripcion": "Tomate, mozzarella fresca y albahaca con aceite de oliva.",
+		"ingredientes": ["Tomate", "Mozzarella", "Albahaca", "Aceite de oliva"],
+		"alergenos": ["Lácteos"],
+		"precio": 8500,
+		"id_categoria": 2,
+		"imagen": "https://deliciaskitchen.b-cdn.net/wp-content/uploads/2022/07/ensalada-caprese-receta-original-italiana.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 6,
+		"nombre": "Ensalada del huerto",
+		"descripcion": "Mix de hojas verdes, zanahoria, remolacha y tomate cherry.",
+		"ingredientes": ["Hojas verdes", "Zanahoria", "Remolacha", "Tomate cherry"],
+		"alergenos": [],
+		"precio": 8000,
+		"id_categoria": 2,
+		"imagen": "https://whouse.com.mx/cdn/shop/articles/ensalada_del_huerto_1080x.jpg?v=1694736055",
+		"nuevo_destacado": true
+	},
+	{
+		"id": 7,
+		"nombre": "Bife de chorizo a la parrilla",
+		"descripcion": "Bife jugoso cocido a las brasas, acompañado de papas rústicas.",
+		"ingredientes": ["Bife de chorizo", "Sal", "Papas"],
+		"alergenos": [],
+		"precio": 17000,
+		"id_categoria": 3,
+		"imagen": "https://api.carneargentina.org.ar/web/uploads/recipes/60/gallery/0-desktop.webp?1705063534",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 8,
+		"nombre": "Milanesa de carne a caballo",
+		"descripcion": "Milanesa de nalga con huevos fritos y papas fritas.",
+		"ingredientes": ["Carne vacuna", "Pan rallado", "Huevo", "Papas"],
+		"alergenos": ["Gluten", "Huevo"],
+		"precio": 14500,
+		"id_categoria": 3,
+		"imagen": "https://media.lmneuquen.com/p/7e0c76e74c99f6ec8c82e3fb61c43116/adjuntos/195/imagenes/005/541/0005541097/1200x675/smart/milanesas-a-caballojpg.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 9,
+		"nombre": "Lomo a la pimienta",
+		"descripcion": "Lomo tierno con salsa de pimienta negra, acompañado de puré.",
+		"ingredientes": ["Lomo", "Pimienta negra", "Crema", "Papas"],
+		"alergenos": ["Lácteos"],
+		"precio": 16500,
+		"id_categoria": 3,
+		"imagen": "https://truffle-assets.tastemadecontent.net/4aaaf054-lomo-a-la-pimienta_1920x1080.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 10,
+		"nombre": "Pollo al ajillo",
+		"descripcion": "Pechugas doradas al horno con ajo y papas al romero.",
+		"ingredientes": ["Pollo", "Ajo", "Papas", "Romero"],
+		"alergenos": [],
+		"precio": 13000,
+		"id_categoria": 3,
+		"imagen": "https://invitadoinvierno.com/wp-content/uploads/2021/02/receta-pollo-ajillo-tradicional-1.jpg",
+		"nuevo_destacado": true
+	},
+	{
+		"id": 11,
+		"nombre": "Milanesa de pollo con papas fritas",
+		"descripcion": "Milanesa crocante de pollo con guarnición de papas.",
+		"ingredientes": ["Pollo", "Pan rallado", "Huevo", "Papas"],
+		"alergenos": ["Gluten", "Huevo"],
+		"precio": 12500,
+		"id_categoria": 3,
+		"imagen": "https://images.ctfassets.net/uu4q7lk7kqth/1s0q9wfjWxUdjjSvIgSQZw/34d8ad0c0b8bf7bfbf84433754c72f1b/milanesa-de-pollo-con-papa-fritas.jpg?fm=webp&q=95",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 12,
+		"nombre": "Pollo al curry con arroz",
+		"descripcion": "Cubos de pollo salteados en salsa de curry suave, con arroz blanco.",
+		"ingredientes": ["Pollo", "Curry", "Crema", "Arroz"],
+		"alergenos": ["Lácteos"],
+		"precio": 13500,
+		"id_categoria": 3,
+		"imagen": "https://cdn5.recetasdeescandalo.com/wp-content/uploads/2020/10/Pollo-al-curry-y-arroz-basmati-con-Thermomix-exotico-y-delicioso.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 13,
+		"nombre": "Salmón grillado con vegetales",
+		"descripcion": "Filete de salmón a la plancha con mix de vegetales al vapor.",
+		"ingredientes": ["Salmón", "Calabaza", "Brócoli", "Zanahoria"],
+		"alergenos": ["Pescado"],
+		"precio": 19000,
+		"id_categoria": 3,
+		"imagen": "https://www.recetasnestle.cl/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/dc90291f0ad3ffceef101ce9f6eddc9d.jpg?itok=xEdKc4gn",
+		"nuevo_destacado": true
+	},
+	{
+		"id": 14,
+		"nombre": "Trucha al limón",
+		"descripcion": "Trucha fresca con salsa cítrica y papas al horno.",
+		"ingredientes": ["Trucha", "Limón", "Manteca", "Papas"],
+		"alergenos": ["Pescado", "Lácteos"],
+		"precio": 17500,
+		"id_categoria": 3,
+		"imagen": "https://alicante.com.ar/wp-content/uploads/2022/06/447_receta.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 15,
+		"nombre": "Paella de mariscos",
+		"descripcion": "Arroz con mariscos, azafrán y verduras al estilo español.",
+		"ingredientes": [
+			"Arroz",
+			"Calamares",
+			"Camarones",
+			"Mejillones",
+			"Azafrán",
+			"Morrón"
+		],
+		"alergenos": ["Mariscos"],
+		"precio": 20000,
+		"id_categoria": 3,
+		"imagen": "https://mahatmarice.com/wp-content/uploads/2019/08/Authentic-Spanish-Paella.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 16,
+		"nombre": "Sorrentinos de jamón y queso",
+		"descripcion": "Sorrentinos caseros con salsa mixta.",
+		"ingredientes": ["Masa de pasta", "Jamón", "Queso", "Salsa mixta"],
+		"alergenos": ["Gluten", "Lácteos"],
+		"precio": 12000,
+		"id_categoria": 4,
+		"imagen": "https://acdn-us.mitiendanube.com/stores/001/497/896/products/sorrentinos-de-jamon-y-queso-con-salsa-bolognesa1-b7161a06c80e9e492a16467954786599-640-0.jpg",
+		"nuevo_destacado": true
+	},
+	{
+		"id": 17,
+		"nombre": "Ravioles de verdura",
+		"descripcion": "Ravioles rellenos de espinaca y ricota con salsa bolognesa.",
+		"ingredientes": [
+			"Espinaca",
+			"Ricota",
+			"Carne",
+			"Salsa de tomate",
+			"Masa de pasta"
+		],
+		"alergenos": ["Gluten", "Lácteos"],
+		"precio": 11500,
+		"id_categoria": 4,
+		"imagen": "https://comedera.com/wp-content/uploads/sites/9/2022/08/raviolis-de-queso-y-espinacas.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 18,
+		"nombre": "Fettuccine al pesto",
+		"descripcion": "Fideos con salsa pesto de albahaca y nueces.",
+		"ingredientes": [
+			"Fideos",
+			"Albahaca",
+			"Aceite de oliva",
+			"Nueces",
+			"Queso parmesano"
+		],
+		"alergenos": ["Gluten", "Frutos secos", "Lácteos"],
+		"precio": 11000,
+		"id_categoria": 4,
+		"imagen": "https://www.chiselandfork.com/wp-content/uploads/2024/02/tagliatelle-pesto-1.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 19,
+		"nombre": "Flan casero",
+		"descripcion": "Clásico flan de huevo con dulce de leche o crema.",
+		"ingredientes": ["Huevo", "Leche", "Azúcar"],
+		"alergenos": ["Huevo", "Lácteos"],
+		"precio": 5000,
+		"id_categoria": 5,
+		"imagen": "https://imag.bonviveur.com/flan-de-vainilla-en-el-plato.jpg",
+		"nuevo_destacado": true
+	},
+	{
+		"id": 20,
+		"nombre": "Panqueque de dulce de leche",
+		"descripcion": "Panqueque tibio relleno de dulce de leche.",
+		"ingredientes": ["Harina", "Huevo", "Leche", "Dulce de leche"],
+		"alergenos": ["Gluten", "Huevo", "Lácteos"],
+		"precio": 5500,
+		"id_categoria": 5,
+		"imagen": "https://i.blogs.es/2e3e5d/panqueques-con-dulce-de-leche/1366_2000.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 21,
+		"nombre": "Helado artesanal",
+		"descripcion": "2 bochas a elección.",
+		"ingredientes": ["Varía según sabor"],
+		"alergenos": ["Lácteos"],
+		"precio": 6000,
+		"id_categoria": 5,
+		"imagen": "https://es.cravingsjournal.com/wp-content/uploads/2022/01/helado-de-yogurt-y-frutos-rojos-6.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 22,
+		"nombre": "Vino Malbec (copa)",
+		"descripcion": "Vino tinto Malbec, copa de 150ml.",
+		"ingredientes": ["Uvas Malbec"],
+		"alergenos": [],
+		"precio": 4500,
+		"id_categoria": 6,
+		"imagen": "https://http2.mlstatic.com/D_Q_NP_993500-MLU71267142491_082023-O.webp",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 23,
+		"nombre": "Cerveza artesanal (botella)",
+		"descripcion": "Cerveza rubia artesanal en botella de 500ml.",
+		"ingredientes": ["Cebada", "Lúpulo", "Agua", "Levadura"],
+		"alergenos": ["Gluten"],
+		"precio": 5000,
+		"id_categoria": 6,
+		"imagen": "https://economis.com.ar/wp-content/uploads/2022/02/Cerveza-artesanal-3-1.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 24,
+		"nombre": "Fernet con coca",
+		"descripcion": "Trago clásico argentino con Fernet y Coca-Cola.",
+		"ingredientes": ["Fernet", "Coca-Cola"],
+		"alergenos": [],
+		"precio": 4800,
+		"id_categoria": 6,
+		"imagen": "https://api.argentina.travel/files/images/0de7b753-eadc-4edb-be91-15e34f8992fd-Fernet_baja.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 25,
+		"nombre": "Agua mineral",
+		"descripcion": "Botella de agua sin gas 500ml.",
+		"ingredientes": ["Agua"],
+		"alergenos": [],
+		"precio": 2500,
+		"id_categoria": 7,
+		"imagen": "https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3040045_f.jpg",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 26,
+		"nombre": "Gaseosa línea Coca-Cola (botella)",
+		"descripcion": "Botella de 500ml a elección.",
+		"ingredientes": ["Varía según bebida"],
+		"alergenos": [],
+		"precio": 3000,
+		"id_categoria": 7,
+		"imagen": "https://modomarketar.vteximg.com.br/arquivos/ids/172145/Coca-Cola-Botella-X-500-Ml-1-4159.jpg?v=638685885702570000",
+		"nuevo_destacado": false
+	},
+	{
+		"id": 27,
+		"nombre": "Jugo exprimido de naranja",
+		"descripcion": "Jugo natural recién exprimido.",
+		"ingredientes": ["Naranja"],
+		"alergenos": [],
+		"precio": 3500,
+		"id_categoria": 7,
+		"imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOSs0izBVODzqPucMrISv-KSlG7UbnT4Rh3g&s",
+		"nuevo_destacado": false
+	}
+]
