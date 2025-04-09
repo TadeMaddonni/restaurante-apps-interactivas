@@ -8,6 +8,7 @@ const Destacados = () => {
     const [categories, setCategories] = useState([]); // Categorías
     const [selectedCategory, setSelectedCategory] = useState(1); // Categoría seleccionada
     const [selectedDishes, setSelectedDishes] = useState([]); // Platos filtrados
+    const [selectedItem, setSelectedItem] = useState(null); // Plato seleccionado
     const [selectedImage, setSelectedImage] = useState("hero-image.png"); // Imagen seleccionada
 
     // Cargar categorías al montar el componente
@@ -22,14 +23,15 @@ const Destacados = () => {
         );
         setSelectedDishes(filteredDishes);
 
-        // Cambiar la imagen al primer plato de la categoría seleccionada
+        // Seleccionar el primer plato de la categoría y su imagen
         if (filteredDishes.length > 0) {
-            setSelectedImage(filteredDishes[0].image || "hero-image.png");
+            setSelectedItem(filteredDishes[0].id); // Selecciona el primer plato
+            setSelectedImage(filteredDishes[0].imagen || "hero-image.png"); // Selecciona su imagen
         }
     }, [selectedCategory]);
 
     return (
-        <section className="bg-[#EDE7D4] py-20 px-6 md:px-12 lg:px-16 text-left w-full space-y-12 gap-20">
+        <section className="bg-[#EDE7D4] py-20 px-6 md:px-12 lg:px-16 text-left w-full space-y-12 md:gap-6 flex flex-col justify-center items-center">
             <div className="flex justify-between align-top max-w-[1200px] mx-auto w-full flex-wrap gap-12">
                 <div className="flex flex-col gap-8 text-left w-full md:w-1/2">
                     <h2 className="text-4xl lg:text-6xl text-[#191514] font-display font-medium text-left tracking-tighter">
@@ -78,23 +80,31 @@ const Destacados = () => {
                 </div>
             </div>
 
-            <div className="bg-[#4B5728] rounded-3xl flex flex-row justify-between gap-4 p-2 w-full max-w-[1200px]">
-                <div className="w-full flex flex-col gap-4 text-[#DCE2CB]">
-                    <h2>SABORES TRADICIONALES PARA EXIGENTES PALADARES</h2>
-                    <div className="flex flex-col  gap-4">
-                        {selectedDishes.map((dish) => (
+            <div className="bg-[#4B5728] rounded-3xl flex flex-row justify-between gap-4 p-8 w-full max-w-[1200px] flex-wrap md:gap-0">
+                <div className="w-full flex flex-col gap-4 text-[#DCE2CB] md:w-1/2 md:pr-8">
+                    <div className="flex flex-col ">
+                        {selectedDishes.slice(0, 3).map((dish) => (
                             <CategoryItem
                                 key={dish.id}
                                 title={dish.nombre}
                                 description={dish.descripcion}
                                 price={dish.precio}
-                                image={dish.image || "default-image.png"}
+                                image={dish.imagen || "default-image.png"}
                                 setProductImage={setSelectedImage}
+                                id={dish.id}
+                                selectedItem={selectedItem} // Pasar el estado seleccionado
+                                setSelectedItem={setSelectedItem} // Pasar la función para actualizar el seleccionado
                             />
                         ))}
                     </div>
                 </div>
-                <img src={selectedImage} alt="Plato seleccionado" />
+                <div className="md:pl-8 w-full md:w-1/2 h-full">
+                    <img
+                        src={selectedImage}
+                        alt="Plato seleccionado"
+                        className="rounded-3xl object-cover w-full h max-h-80"
+                    />
+                </div>
             </div>
         </section>
     );

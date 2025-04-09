@@ -11,7 +11,7 @@ export default function Category({ nombre, id, setCategory, selectedCategory }) 
             <Button 
                 className={`border cursor-pointer rounded-3xl ${
                     selectedCategory === id 
-                        ? "bg-[#E3870E] text-white border-[#E3870E]" 
+                        ? "bg-[#E3870E] text-white border-[#E3870E] hover:bg-[#E3870E] hover:border-[#E3870E]" 
                         : "bg-[#eeeeee00] text-black hover:bg-[#eeeeee00] hover:border-[#E3870E] border-[#7d7d7d]"
                 }`} 
                 size="lg" 
