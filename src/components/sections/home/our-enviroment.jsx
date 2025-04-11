@@ -8,7 +8,7 @@ const OurEnvironment = () => {
 					<h2 className="text-4xl lg:text-6xl text-[#191514] font-medium text-center  tracking-tighter font-display">
 						El encanto de nuestro espacio
 					</h2>
-					<p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto ">
+					<p className="text-sm md:text-lg text-gray-700 mb-10 max-w-3xl mx-auto ">
 						Inspirado en la calidez de la cultura argentina, nuestro entorno
 						fusiona la naturaleza con la elegancia. Rodeado de vegetación, luz
 						tenue y detalles cuidadosamente pensados, cada rincón invita a

@@ -23,7 +23,7 @@ const SelectedDishes = () => {
 			</h2>
 			<div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 ">
 				{/* Izquierda */}
-				<div className="hidden md:block space-y-5 md:space-y-[96px] text-left w-[300px]">
+				<div className="hidden md:block space-y-8 md:space-y-[96px] text-left w-[300px]">
 					{selectedDishes.slice(0, 2).map((dish) => (
 						<Item
 							key={dish.id}

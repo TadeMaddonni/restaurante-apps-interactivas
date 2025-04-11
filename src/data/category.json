@@ -1,37 +1,44 @@
 [
     {
       "id": 1,
-      "nombre": "Entrantes",
-      "descripcion": "Platos pequeños para comenzar la comida."
+      "nombre": "Entradas",
+      "descripcion": "Platos pequeños para comenzar la comida.",
+      "selected_category": true
     },
     {
       "id": 2,
-      "nombre": "Ensaladas",
-      "descripcion": "Opciones frescas y saludables."
+      "nombre": "Ensaladas Gourmet",
+      "descripcion": "Opciones frescas y saludables.",
+      "selected_category": true
     },
     {
       "id": 3,
       "nombre": "Platos Principales",
-      "descripcion": "Platos fuertes para disfrutar."
+      "descripcion": "Platos fuertes para disfrutar.",
+      "selected_category": true
     },
     {
       "id": 4,
       "nombre": "Pastas",
-      "descripcion": "Pastas caseras con salsas deliciosas."
+      "descripcion": "Pastas caseras con salsas deliciosas.",
+      "selected_category": true
     },
     {
       "id": 5,
       "nombre": "Postres",
-      "descripcion": "Dulces para cerrar la comida."
+      "descripcion": "Dulces para cerrar la comida.",
+      "selected_category": false
     },
     {
       "id": 6,
       "nombre": "Bebidas Alcohólicas",
-      "descripcion": "Bebidas con alcohol para acompañar."
+      "descripcion": "Bebidas con alcohol para acompañar.",
+      "selected_category": false
     },
     {
       "id": 7,
       "nombre": "Bebidas sin Alcohol",
-      "descripcion": "Opciones refrescantes sin alcohol."
+      "descripcion": "Opciones refrescantes sin alcohol.",
+      "selected_category": false
     }
   ]

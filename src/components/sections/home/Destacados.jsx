@@ -3,6 +3,7 @@ import Category from "./Selected-category";
 import CategoryData from "../../../data/category.json";
 import ProductData from "../../../data/products.json"; // Importa los productos
 import CategoryItem from "./Category-item";
+import { LoaderCircle } from "lucide-react";
 
 const Destacados = () => {
 	const [categories, setCategories] = useState([]); // Categorías
@@ -14,7 +15,7 @@ const Destacados = () => {
 
 	// Cargar categorías al montar el componente
 	useEffect(() => {
-		setCategories(CategoryData); // Carga las categorías desde el archivo JSON
+		setCategories(CategoryData.filter(ctg => ctg.selected_category !== false)); // Carga las categorías desde el archivo JSON
 	}, []);
 
 	// Filtrar platos según la categoría seleccionada
@@ -35,6 +36,14 @@ const Destacados = () => {
 	const handleImageLoad = () => {
 		setIsImageLoading(false); // Marca la imagen como cargada
 	};
+
+	const handleImageChange = (image) => {
+		console.log(image)
+		if (selectedImage === image) return;
+		
+		setSelectedImage(image)
+		setIsImageLoading(true)
+	}
 
 	return (
 		<section className="bg-[#EDE7D4] py-20 px-6 md:px-12 lg:px-16 text-left w-full space-y-12 md:gap-6 flex flex-col justify-center items-center overflow-hidden">
@@ -88,20 +97,17 @@ const Destacados = () => {
 				</div>
 			</div>
 
-			<div className="bg-[#4B5728] rounded-3xl flex flex-row justify-between gap-4 p-6 md:p-8 w-full max-w-[1200px] flex-wrap md:gap-0 ">
+			<div className="bg-[#4B5728] rounded-3xl flex flex-col-reverse md:flex-row	  justify-between gap-4 p-6 md:p-8 w-full max-w-[1200px] flex-wrap md:gap-0 ">
 				<div className="w-full flex flex-col gap-4 text-[#DCE2CB] md:w-1/2 md:pr-8">
 					<div className="flex flex-col ">
-						{selectedDishes.slice(0, 3).map((dish) => (
+						{selectedDishes.slice(0, 5).map((dish) => (
 							<CategoryItem
 								key={dish.id}
 								title={dish.nombre}
 								description={dish.descripcion}
 								price={dish.precio}
 								image={dish.imagen || "default-image.png"}
-								setProductImage={(image) => {
-									setSelectedImage(image);
-									setIsImageLoading(true); // Reinicia el estado de carga de la imagen
-								}}
+								setProductImage={handleImageChange}
 								id={dish.id}
 								selectedItem={selectedItem} // Pasar el estado seleccionado
 								setSelectedItem={setSelectedItem} // Pasar la función para actualizar el seleccionado
@@ -109,16 +115,17 @@ const Destacados = () => {
 						))}
 					</div>
 				</div>
-				<div className="md:pl-8 w-full md:w-1/2 h-[250px] md:h-[450px]  max-h-[450px] relative">
+				<div className="md:pl-8 w-full md:w-1/2 h-[250px] md:h-[450px]  max-h-[450px] md:max-w-1/2 relative">
 					{isImageLoading && (
-						<div className="absolute inset-0 bg-gray-200 flex items-center justify-center rounded-3xl">
-							<span className="text-gray-500">Cargando...</span>
+						<div className="absolute inset-0 W-full max-w-full flex flex-col gap-3 items-center justify-center rounded-3xl">
+							<span className="text-gray-200">Cargando...</span>
+							<LoaderCircle className="text-white animate-spin "/>
 						</div>
 					)}
 					<img
 						src={selectedImage}
 						alt="Plato seleccionado"
-						className={`rounded-3xl object-cover w-full h-full max-h-[450px] transition-opacity duration-500 ${
+						className={`rounded-3xl object-cover min-w-full w-full h-full max-h-[450px] transition-opacity duration-500 ${
 							isImageLoading ? "opacity-0" : "opacity-100"
 						}`}
 						onLoad={handleImageLoad}
