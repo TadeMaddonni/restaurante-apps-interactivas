@@ -12,8 +12,8 @@ function App() {
 			<Header />
 			<main className="flex flex-col justify-start min-h-screen  bg-background">
 				<Hero />
-				<OurEnvironment />
 				<Destacados />
+				<OurEnvironment />
 				<SelectedDishes />
 				<Location />
 				<Footer />

@@ -2,15 +2,15 @@ import React from "react";
 
 const Location = () => {
 	return (
-		<section class="bg-[#EDE7D4]  pt-20 text-center flex flex-col items-center justify-center gap-10 px-4 md:px-0">
+		<section class="bg-[#EDE7D4]  pt-20 text-center flex flex-col items-center justify-center gap-10 px-0 md:px-0">
 			{/* Titulo */}
 			<h2 className="text-4xl lg:text-6xl text-[#191514] font-display font-medium text-left tracking-tighter">
 				Donde encontrarnos
 			</h2>
 
-			<div class="relative w-full md:h-[550px]">
+			<div class="relative w-full md:h-[550px] flex-col items-center justify-center	">
 				{/* Info */}
-				<div class="md:absolute bottom-105  right-5 bg-[#EDE7D4] border-2 border-[#E3870E] text-left p-5 mx-6 shadow-lg rounded-xl max-w-xs z-10 mb-6 md:mb-0">
+				<div class="md:absolute bottom-105  right-5 bg-[#EDE7D4] border-2 border-[#E3870E] text-left p-5  shadow-lg rounded-xl mx-auto max-w-xs z-10 mb-6 md:mb-0">
 					<h3 class="font-semibold text-lg mb-1">Dirección</h3>
 					<p class="mb-4">Norberto Mansilla 3748, Palermo.</p>
 

@@ -16,7 +16,7 @@ export default function CategoryItem({
 	return (
 		<div
 			onClick={handleClick}
-			className="cursor-pointer w-full flex flex-col text-[#DCE2CB] border-b border-[#DCE2CB] py-4 last:border-none transition-all duration-300 ease-in-out"
+			className="cursor-pointer w-full flex flex-col text-[#DCE2CB] border-b border-[#DCE2CB] py-4 last:border-none transition-all duration-300 ease-in-out "
 		>
 			<div className="w-full flex justify-between items-start pb-2">
 				<h3

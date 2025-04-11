@@ -5,11 +5,11 @@ export default function Item({ title, description, image, setImage }) {
 	console.log(title, description, image);
 	return (
 		<div
-			className="w-full  pb-2 flex flex-col gap-4 cursor-pointer"
+			className="w-full  pb-2 flex flex-col gap-2 md:gap-4 cursor-pointer"
 			onClick={handleClick}
 			onKeyUp={(e) => e.key === "Enter" && handleClick()}
 		>
-			<h3 className=" text-[24px] font-display leading-tighter font-semibold text-[#191514] flex items-center justify-between border-b border-[#191514] pb-2">
+			<h3 className=" text-[20px] md:text-[24px] font-display leading-tighter font-semibold text-[#191514] flex items-center justify-between border-b border-[#191514] pb-2">
 				{title}
 				<div className="rotate-[45deg] w-fit h-fit hover:rotate-[90deg] transition-all duration-300 ease-in-out">
 					<svg
@@ -31,7 +31,7 @@ export default function Item({ title, description, image, setImage }) {
 				</div>
 				{/* <span className="text-orange-500 text-xl">↗</span> */}
 			</h3>
-			<p className="text-[#191514]">{description}</p>
+			<p className="text-[#191514] text-sm md:text-[16px]`x">{description}</p>
 		</div>
 	);
 }
