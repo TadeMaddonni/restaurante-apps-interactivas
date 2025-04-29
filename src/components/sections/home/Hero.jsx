@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 
 const Hero = () => {
 	return (
-		<section className="w-full md:min-h-screen flex items-center justify-center py-12 md:py-12  bg-[#f7f5f0]">
+		<section id="inicio" className="w-full md:min-h-screen flex items-center justify-center py-12 md:py-12  bg-[#f7f5f0]">
 			<div className=" flex flex-col items-center justify-center px-4 lg:px-0 lg:gap-8 w-full">
 				<div className="flex flex-col items-center justify-center mb-12">
 					<div className="h-fit w-full flex justify-center items-end gap-3 md:gap-12">
