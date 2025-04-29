@@ -2,7 +2,7 @@ import React from "react";
 
 const Location = () => {
 	return (
-		<section class="bg-[#EDE7D4]  pt-20 text-center flex flex-col items-center justify-center gap-10 px-0 md:px-0">
+		<section  id="location" class="bg-[#EDE7D4]  pt-20 text-center flex flex-col items-center justify-center gap-10 px-0 md:px-0">
 			{/* Titulo */}
 			<h2 className="text-4xl lg:text-6xl text-[#191514] font-display font-medium text-left tracking-tighter">
 				Donde encontrarnos

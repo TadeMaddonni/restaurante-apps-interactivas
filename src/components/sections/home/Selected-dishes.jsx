@@ -17,7 +17,7 @@ const SelectedDishes = () => {
 	}, []);
 
 	return (
-		<section className="bg-[#EDE7D4] py-20 px-6 md:px-12 lg:px-16 text-center w-full space-y-12">
+		<section id="nuevos-sabores" className="bg-[#EDE7D4] py-20 px-6 md:px-12 lg:px-16 text-center w-full space-y-12">
 			<h2 className="text-4xl lg:text-6xl text-[#191514]font-display font-medium text-center  tracking-tighter ">
 				Nuestros nuevos sabores
 			</h2>

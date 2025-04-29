@@ -46,7 +46,7 @@ const Destacados = () => {
 	}
 
 	return (
-		<section className="bg-[#EDE7D4] py-20 px-6 md:px-12 lg:px-16 text-left w-full space-y-12 md:gap-6 flex flex-col justify-center items-center overflow-hidden">
+		<section id="categorias-destacadas" className="bg-[#EDE7D4] py-20 px-6 md:px-12 lg:px-16 text-left w-full space-y-12 md:gap-6 flex flex-col justify-center items-center overflow-hidden">
 			<div className="flex justify-between align-top max-w-[1200px] mx-auto w-full flex-wrap gap-12">
 				<div className="flex flex-col gap-8 text-left w-full md:w-1/2">
 					<h2 className="text-4xl lg:text-6xl text-[#191514] font-display font-medium text-left tracking-tighter">
