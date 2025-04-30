@@ -12,13 +12,13 @@ const Location = () => {
 				{/* Info */}
 				<div class="md:absolute bottom-105  right-5 bg-[#EDE7D4] border-2 border-[#E3870E] text-left p-5  shadow-lg rounded-xl mx-auto max-w-xs z-10 mb-6 md:mb-0">
 					<h3 class="font-semibold text-lg mb-1">Dirección</h3>
-					<p class="mb-4">Norberto Mansilla 3748, Palermo.</p>
+					<p class="mb-4">📍 Norberto Mansilla 3748, Palermo.</p>
 
 					<h3 class="font-semibold text-lg mb-1">Email</h3>
-					<p class="mb-4">reservas@restoargentino.com</p>
+					<p class="mb-4">📩 reservas@restoargentino.com</p>
 
 					<h3 class="font-semibold text-lg mb-1">Teléfono</h3>
-					<p>+5411063456</p>
+					<p>📞 +5411063456</p>
 				</div>
 
 				{/* Map */}

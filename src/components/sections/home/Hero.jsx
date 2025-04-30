@@ -30,8 +30,8 @@ const Hero = () => {
 					{/* Center - Green Circle */}
 					<div className="relative cursor-pointer hover:scale-105 transform transition-transform duration-300">
 						<div className="bg-[#1a472a] text-white rounded-full w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center">
-							<span className="text-md font-display font-medium">Explore</span>
-							<span className="text-md font-display font-medium">menu</span>
+							<span className="text-md font-display font-medium">Nuestros</span>
+							<span className="text-md font-display font-medium">sabores</span>
 						</div>
 					</div>
 
@@ -70,9 +70,9 @@ const Hero = () => {
 							</div>
 							<p className="text-sm ">
 								{" "}
-								Satisfied <br />
+								Clientes <br />
 								<span className="text-sm font-normal">
-									Customer reviews
+									Satisfechos
 								</span>{" "}
 							</p>
 						</div>
@@ -106,7 +106,7 @@ const Hero = () => {
 							<p className="text-sm ">
 								{" "}
 								20+ <br />
-								<span className="text-sm font-normal"> famous dishes</span>{" "}
+								<span className="text-sm font-normal"> platos argentinos</span>{" "}
 							</p>
 						</div>
 					</div>
