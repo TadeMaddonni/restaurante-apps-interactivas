@@ -247,7 +247,7 @@
 	{
 		"id": 21,
 		"nombre": "Helado artesanal",
-		"descripcion": "2 bochas a elección.",
+		"descripcion": "2 bochas de helado a elección. Chocolate, dulce de leche o frutillas",
 		"ingredientes": ["Varía según sabor"],
 		"alergenos": ["Lácteos"],
 		"precio": 6000,
@@ -291,7 +291,7 @@
 	{
 		"id": 25,
 		"nombre": "Agua mineral",
-		"descripcion": "Botella de agua sin gas 500ml.",
+		"descripcion": "Botella de agua mineral sin gas de 500ml.",
 		"ingredientes": ["Agua"],
 		"alergenos": [],
 		"precio": 2500,
@@ -302,7 +302,7 @@
 	{
 		"id": 26,
 		"nombre": "Coca-Cola 500ml",
-		"descripcion": "Botella de 500ml a elección.",
+		"descripcion": "Botella de linea Coca Cola 500ml a elección.",
 		"ingredientes": ["Varía según bebida"],
 		"alergenos": [],
 		"precio": 3000,
@@ -313,7 +313,7 @@
 	{
 		"id": 27,
 		"nombre": "Jugo de naranja",
-		"descripcion": "Jugo natural recién exprimido.",
+		"descripcion": "Jugo natural de naranja recien exprimido.",
 		"ingredientes": ["Naranja"],
 		"alergenos": [],
 		"precio": 3500,
