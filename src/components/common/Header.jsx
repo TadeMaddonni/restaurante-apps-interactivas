@@ -5,6 +5,7 @@ import {
     NavigationMenuLink,
 } from "../ui/navigation-menu";
 import { UtensilsCrossed, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,12 +21,12 @@ const Header = () => {
                 <ul className="flex justify-between w-full max-w-[1200px]">
                     {/* Menú alineado a la izquierda */}
                     <div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center">
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="/platos">Menu</NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="/#categorias-destacadas">Categorias</NavigationMenuLink>
-                        </NavigationMenuItem>
+                        <Link to={"/platos"}>
+                            <NavigationMenuLink >Menu</NavigationMenuLink>
+                        </Link>
+                        <NavigationMenuLink href="/#categorias-destacadas" >Categorias</NavigationMenuLink>
+
+
                     </div>
                     <div className="center flex items-center justify-center ml-10 gap-2">
                         {/* Logo del restaurante */}
@@ -37,7 +38,7 @@ const Header = () => {
                         <NavigationMenuLink href="/#nuevos-sabores">
                             Nuevos Sabores
                         </NavigationMenuLink>
-                        <NavigationMenuItem>
+                        <NavigationMenuItem >
                             <NavigationMenuLink href="/#location">Nosotros</NavigationMenuLink>
                         </NavigationMenuItem>
                     </div>
@@ -58,46 +59,45 @@ const Header = () => {
                 </button>
             </div>
             <div
-                className={`md:hidden bg-[#f7f5f0] shadow-md transition-all duration-300 ease-in-out ${
-                    isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-                } overflow-hidden`}
+                className={`md:hidden bg-[#f7f5f0] shadow-md transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+                    } overflow-hidden`}
             >
                 <ul className="flex flex-col gap-4 p-4">
                     <li>
-                        <a
-                            href="/platos"
+                        <Link
+                            to="/platos"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Menu
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
-                            href="#categorias-destacadas"
+                        <Link
+                            to="#categorias-destacadas"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Categorias
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
-                            href="#nuevos-sabores"
+                        <Link
+                            to="/#nuevos-sabores"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Nuevos Sabores
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
-                            href="#location"
+                        <Link
+                            to="/#location"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Nosotros
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
