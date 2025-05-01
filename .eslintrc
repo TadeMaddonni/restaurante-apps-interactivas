@@ -1,6 +1,21 @@
 {
     "env": {
       "node": true
+    },
+    "plugins": ["import"],
+    "rules": {
+      "import/no-unresolved": "error",
+      "import/no-named-as-default-member": "off",
+      "import/no-named-as-default": "off",
+      "import/no-case-sensitive": "error"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx"]
+        }
+      }
     }
-  }
+}
+
   
