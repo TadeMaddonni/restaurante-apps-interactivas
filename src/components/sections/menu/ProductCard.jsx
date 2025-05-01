@@ -6,7 +6,7 @@ const ProductCard = ({ name, image, description, price, allergens }) => {
     console.log(name, image, description, price, allergens)
     return (
         <div className='h-[300px]'>
-            <div className="relative bg-white rounded-2xl shadow-lg p-4 pt-16 pb-3 w-[280px] md:w-full mx-auto min-h-[280px] flex flex-col justify-between ">
+            <div className="relative bg-white rounded-2xl shadow-lg p-4 pt-16 pb-3 w-[280px] md:w-full md:min-w[300px] mx-auto min-h-[280px] flex flex-col justify-between ">
                 {/* Image */}
                 <div className="absolute -top-20 left-1/2 transform w-[160px] -translate-x-1/2 mb-4">
                     <img
