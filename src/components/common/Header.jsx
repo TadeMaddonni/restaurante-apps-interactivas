@@ -22,15 +22,10 @@ const Header = () => {
                     {/* Menú alineado a la izquierda */}
                     <div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center">
                         <Link to={"/platos"}>
-                            <NavigationMenuItem>
-                                <NavigationMenuLink >Menu</NavigationMenuLink>
-                            </NavigationMenuItem>
+                            <NavigationMenuLink >Menu</NavigationMenuLink>
                         </Link>
-                        <Link to={"/#categorias-destacadas"}>
-                            <NavigationMenuItem>
-                                <NavigationMenuLink >Categorias</NavigationMenuLink>
-                            </NavigationMenuItem>
-                        </Link>
+                        <NavigationMenuLink href="/#categorias-destacadas" >Categorias</NavigationMenuLink>
+
 
                     </div>
                     <div className="center flex items-center justify-center ml-10 gap-2">
@@ -40,16 +35,12 @@ const Header = () => {
                     </div>
                     {/* Menú alineado a la derecha */}
                     <div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center">
-                        <Link to={"/#nuevos-sabores"}>
-                            <NavigationMenuLink>
-                                Nuevos Sabores
-                            </NavigationMenuLink>                        
-                        </Link>
-                        <Link to={"/#location"}>                        
-                            <NavigationMenuItem>
-                                <NavigationMenuLink >Nosotros</NavigationMenuLink>
-                            </NavigationMenuItem>
-                        </Link>
+                        <NavigationMenuLink href="/#nuevos-sabores">
+                            Nuevos Sabores
+                        </NavigationMenuLink>
+                        <NavigationMenuItem >
+                            <NavigationMenuLink href="/#location">Nosotros</NavigationMenuLink>
+                        </NavigationMenuItem>
                     </div>
                 </ul>
             </NavigationMenu>
@@ -68,9 +59,8 @@ const Header = () => {
                 </button>
             </div>
             <div
-                className={`md:hidden bg-[#f7f5f0] shadow-md transition-all duration-300 ease-in-out ${
-                    isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-                } overflow-hidden`}
+                className={`md:hidden bg-[#f7f5f0] shadow-md transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+                    } overflow-hidden`}
             >
                 <ul className="flex flex-col gap-4 p-4">
                     <li>
@@ -84,7 +74,7 @@ const Header = () => {
                     </li>
                     <li>
                         <Link
-                            to="/#categorias-destacadas"
+                            to="#categorias-destacadas"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
