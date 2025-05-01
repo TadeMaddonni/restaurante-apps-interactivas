@@ -1,25 +1,26 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/common/Header.jsx";
-import Hero from "./components/sections/home/Hero";
-import SelectedDishes from "./components/sections/home/Selected-dishes";
-import OurEnvironment from "./components/sections/home/our-enviroment.jsx";
-import Location from "./components/sections/home/Location.jsx";
 import Footer from "./components/common/Footer.jsx";
-import Destacados from "./components/sections/home/Destacados.jsx";
+import Home from "./components/pages/Home.jsx";
+import ProductDetail from "./components/pages/ProductDetail.jsx";
 
 function App() {
-	return (
-		<>
-			<Header />
-			<main className="flex flex-col justify-start min-h-screen  bg-background">
-				<Hero />
-				<Destacados />
-				<OurEnvironment />
-				<SelectedDishes />
-				<Location />
-				<Footer />
-			</main>
-		</>
-	);
+    return (
+        <Router>
+            <Header />
+            <main className="flex flex-col justify-start min-h-screen bg-background">
+                <Routes>
+                    {/* Ruta principal */}
+                    <Route path="/" element={<Home />} />
+
+                    {/* Ruta para el detalle del plato */}
+                    <Route path="/plato/:id" element={<ProductDetail />} />
+                </Routes>
+            </main>
+            <Footer />
+        </Router>
+    );
 }
 
 export default App;
