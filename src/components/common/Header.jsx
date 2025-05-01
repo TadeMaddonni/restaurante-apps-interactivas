@@ -14,17 +14,17 @@ const Header = () => {
     };
 
     return (
-        <header className="w-full bg-[#f7f5f0/80] backdrop-blur-md sticky top-0 z-50">
+        <header className="w-full bg-background sticky top-0 z-50">
             {/* Menú para escritorio */}
             <NavigationMenu className="hidden md:flex px-4 py-3 w-full max-w-screen">
                 <ul className="flex justify-between w-full max-w-[1200px]">
                     {/* Menú alineado a la izquierda */}
                     <div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center">
                         <NavigationMenuItem>
-                            <NavigationMenuLink href="#inicio">Menu</NavigationMenuLink>
+                            <NavigationMenuLink href="/platos">Menu</NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <NavigationMenuLink href="#categorias-destacadas">Categorias</NavigationMenuLink>
+                            <NavigationMenuLink href="/#categorias-destacadas">Categorias</NavigationMenuLink>
                         </NavigationMenuItem>
                     </div>
                     <div className="center flex items-center justify-center ml-10 gap-2">
@@ -34,11 +34,11 @@ const Header = () => {
                     </div>
                     {/* Menú alineado a la derecha */}
                     <div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center">
-                        <NavigationMenuLink href="#nuevos-sabores">
+                        <NavigationMenuLink href="/#nuevos-sabores">
                             Nuevos Sabores
                         </NavigationMenuLink>
                         <NavigationMenuItem>
-                            <NavigationMenuLink href="#location">Nosotros</NavigationMenuLink>
+                            <NavigationMenuLink href="/#location">Nosotros</NavigationMenuLink>
                         </NavigationMenuItem>
                     </div>
                 </ul>
@@ -65,7 +65,7 @@ const Header = () => {
                 <ul className="flex flex-col gap-4 p-4">
                     <li>
                         <a
-                            href="#inicio"
+                            href="/platos"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >

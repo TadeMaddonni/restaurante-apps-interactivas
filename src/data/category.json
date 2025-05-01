@@ -1,5 +1,11 @@
 [
     {
+      "id": 0,
+      "nombre": "Todos",
+      "descripcion": "Involucra todos los platos y bebidas seleccionados.",
+      "selected_category": false
+    },
+    {
       "id": 1,
       "nombre": "Entradas",
       "descripcion": "Platos pequeños para comenzar la comida.",
@@ -31,13 +37,13 @@
     },
     {
       "id": 6,
-      "nombre": "Bebidas Alcohólicas",
+      "nombre": "Con Alcohol",
       "descripcion": "Bebidas con alcohol para acompañar.",
       "selected_category": false
     },
     {
       "id": 7,
-      "nombre": "Bebidas sin Alcohol",
+      "nombre": "Sin Alcohol",
       "descripcion": "Opciones refrescantes sin alcohol.",
       "selected_category": false
     }

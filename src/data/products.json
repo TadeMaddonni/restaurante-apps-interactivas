@@ -73,8 +73,8 @@
 	},
 	{
 		"id": 7,
-		"nombre": "Bife de chorizo a la parrilla",
-		"descripcion": "Bife jugoso cocido a las brasas, acompañado de papas rústicas.",
+		"nombre": "Bife de chorizo",
+		"descripcion": "Bife jugoso cocido a las brasas en la parrilla, con papas rústicas.",
 		"ingredientes": ["Bife de chorizo", "Sal", "Papas"],
 		"alergenos": [],
 		"precio": 17000,
@@ -84,7 +84,7 @@
 	},
 	{
 		"id": 8,
-		"nombre": "Milanesa de carne a caballo",
+		"nombre": "Milanesa a caballo",
 		"descripcion": "Milanesa de nalga con huevos fritos y papas fritas.",
 		"ingredientes": ["Carne vacuna", "Pan rallado", "Huevo", "Papas"],
 		"alergenos": ["Gluten", "Huevo"],
@@ -117,8 +117,8 @@
 	},
 	{
 		"id": 11,
-		"nombre": "Milanesa de pollo con papas fritas",
-		"descripcion": "Milanesa crocante de pollo con guarnición de papas.",
+		"nombre": "Milanesa de pollo",
+		"descripcion": "Milanesa crocante de pollo con guarnición de papas fritas.",
 		"ingredientes": ["Pollo", "Pan rallado", "Huevo", "Papas"],
 		"alergenos": ["Gluten", "Huevo"],
 		"precio": 12500,
@@ -139,7 +139,7 @@
 	},
 	{
 		"id": 13,
-		"nombre": "Salmón grillado con vegetales",
+		"nombre": "Salmón grillado",
 		"descripcion": "Filete de salmón a la plancha con mix de vegetales al vapor.",
 		"ingredientes": ["Salmón", "Calabaza", "Brócoli", "Zanahoria"],
 		"alergenos": ["Pescado"],
@@ -179,7 +179,7 @@
 	},
 	{
 		"id": 16,
-		"nombre": "Sorrentinos de jamón y queso",
+		"nombre": "Sorrentinos de J y Q",
 		"descripcion": "Sorrentinos caseros con salsa mixta.",
 		"ingredientes": ["Masa de pasta", "Jamón", "Queso", "Salsa mixta"],
 		"alergenos": ["Gluten", "Lácteos"],
@@ -235,7 +235,7 @@
 	},
 	{
 		"id": 20,
-		"nombre": "Panqueque de dulce de leche",
+		"nombre": "Panqueque con ddl",
 		"descripcion": "Panqueque tibio relleno de dulce de leche.",
 		"ingredientes": ["Harina", "Huevo", "Leche", "Dulce de leche"],
 		"alergenos": ["Gluten", "Huevo", "Lácteos"],
@@ -268,7 +268,7 @@
 	},
 	{
 		"id": 23,
-		"nombre": "Cerveza artesanal (botella)",
+		"nombre": "Cerveza artesanal",
 		"descripcion": "Cerveza rubia artesanal en botella de 500ml.",
 		"ingredientes": ["Cebada", "Lúpulo", "Agua", "Levadura"],
 		"alergenos": ["Gluten"],
@@ -301,7 +301,7 @@
 	},
 	{
 		"id": 26,
-		"nombre": "Gaseosa línea Coca-Cola (botella)",
+		"nombre": "Coca-Cola 500ml",
 		"descripcion": "Botella de 500ml a elección.",
 		"ingredientes": ["Varía según bebida"],
 		"alergenos": [],
@@ -312,7 +312,7 @@
 	},
 	{
 		"id": 27,
-		"nombre": "Jugo exprimido de naranja",
+		"nombre": "Jugo de naranja",
 		"descripcion": "Jugo natural recién exprimido.",
 		"ingredientes": ["Naranja"],
 		"alergenos": [],
