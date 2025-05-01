@@ -5,6 +5,7 @@ import {
     NavigationMenuLink,
 } from "../ui/navigation-menu";
 import { UtensilsCrossed, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,12 +21,17 @@ const Header = () => {
                 <ul className="flex justify-between w-full max-w-[1200px]">
                     {/* Menú alineado a la izquierda */}
                     <div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center">
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="/platos">Menu</NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="/#categorias-destacadas">Categorias</NavigationMenuLink>
-                        </NavigationMenuItem>
+                        <Link to={"/platos"}>
+                            <NavigationMenuItem>
+                                <NavigationMenuLink >Menu</NavigationMenuLink>
+                            </NavigationMenuItem>
+                        </Link>
+                        <Link to={"/#categorias-destacadas"}>
+                            <NavigationMenuItem>
+                                <NavigationMenuLink >Categorias</NavigationMenuLink>
+                            </NavigationMenuItem>
+                        </Link>
+
                     </div>
                     <div className="center flex items-center justify-center ml-10 gap-2">
                         {/* Logo del restaurante */}
@@ -34,12 +40,16 @@ const Header = () => {
                     </div>
                     {/* Menú alineado a la derecha */}
                     <div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center">
-                        <NavigationMenuLink href="/#nuevos-sabores">
-                            Nuevos Sabores
-                        </NavigationMenuLink>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="/#location">Nosotros</NavigationMenuLink>
-                        </NavigationMenuItem>
+                        <Link to={"/#nuevos-sabores"}>
+                            <NavigationMenuLink>
+                                Nuevos Sabores
+                            </NavigationMenuLink>                        
+                        </Link>
+                        <Link to={"/#location"}>                        
+                            <NavigationMenuItem>
+                                <NavigationMenuLink >Nosotros</NavigationMenuLink>
+                            </NavigationMenuItem>
+                        </Link>
                     </div>
                 </ul>
             </NavigationMenu>
@@ -64,40 +74,40 @@ const Header = () => {
             >
                 <ul className="flex flex-col gap-4 p-4">
                     <li>
-                        <a
-                            href="/platos"
+                        <Link
+                            to="/platos"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Menu
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
-                            href="#categorias-destacadas"
+                        <Link
+                            to="/#categorias-destacadas"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Categorias
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
-                            href="#nuevos-sabores"
+                        <Link
+                            to="/#nuevos-sabores"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Nuevos Sabores
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
-                            href="#location"
+                        <Link
+                            to="/#location"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Nosotros
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
