@@ -1,5 +1,4 @@
-import { Button } from "../../ui/button"; // Import correcto
-import React from "react";
+import { Button } from "../../ui/button"; 
 
 export default function Category({ nombre, id, setCategory, selectedCategory }) {
     const handleClick = () => {

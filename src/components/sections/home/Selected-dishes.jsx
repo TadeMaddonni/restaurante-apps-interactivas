@@ -27,6 +27,7 @@ const SelectedDishes = () => {
 					{selectedDishes.slice(0, 2).map((dish) => (
 						<Item
 							key={dish.id}
+							id={dish.id}
 							title={dish.nombre}
 							description={dish.descripcion}
 							image={dish.imagen}
@@ -49,6 +50,7 @@ const SelectedDishes = () => {
 					{selectedDishes.slice(2, 4).map((dish) => (
 						<Item
 							key={dish.id}
+							id={dish.id}
 							title={dish.nombre}
 							description={dish.descripcion}
 							image={dish.imagen}
@@ -61,6 +63,7 @@ const SelectedDishes = () => {
 					{selectedDishes.map((dish) => (
 						<Item
 							key={dish.id}
+							id={dish.id}
 							title={dish.nombre}
 							description={dish.descripcion}
 							image={dish.imagen}
