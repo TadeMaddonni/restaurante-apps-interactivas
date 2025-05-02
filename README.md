@@ -8,27 +8,41 @@ Este proyecto utiliza el siguiente stack tecnologico.
 Este proyecto es una aplicación interactiva para un restaurante, diseñada para mostrar el menú, detalles de los platos, y permitir a los usuarios explorar categorías destacadas. Está construido con React, Tailwind CSS y otras herramientas modernas para garantizar una experiencia fluida y atractiva.´ Se realizó como trabajo práctico para la meteria Aplicaciones Interactivas, del 3er año de la Lic. en Gestión en Tecnologías de la Información en UADE
 
 ## Estructura del Proyecto
+```
 ├── src/
 │   ├── components/       # Componentes reutilizables
 │   │   ├── common/       # Componentes comunes como Header, Footer
 │   │   ├── pages/        # Páginas principales (Home, Menu, ProductDetail)
 │   │   ├── sections/     # Secciones específicas como Hero, Destacados
-│   │   └── ui/           # Componentes de UI reutilizables (botones, tarjetas)
+│   │   └── ui/           # Componentes de UI reutilizables (botones, navegacion)
 │   ├── data/             # Archivos JSON con datos de productos y categorías
 │   ├── lib/              # Utilidades y funciones auxiliares
 │   ├── assets/           # Recursos estáticos como imágenes y fuentes
 │   └── index.css      # Estilos globales
 ├── public/               # Archivos públicos
+├── .eslintrc             # Archivo de configuración de EsLint
 ├── [package.json]       # Dependencias y scripts del proyecto
 └── [vite.config.js]      # Configuración de Vite
+```
 
 ## Requisitos Previos
 - Node.js (versión 16 o superior)
 - npm (versión 8 o superior)
 - Editor de código como Visual Studio Code
 
-## Running the project
+## Dependencias
+- **React**: Biblioteca para construir interfaces de usuario.
+- **React Router DOM**: Manejo de rutas en la aplicación.
+- **Tailwind CSS**: Framework de utilidades CSS para estilos rápidos.
+- **Lucide React**: Iconos SVG para la interfaz.
+- **Shadcn**: Componentes de UI.
+- **eslint**: Para el análisis de código. 
+
+## Cómo inicializar el proyecto
 Clonar repositorio 
+```
+  git clone https://github.com/TadeMaddonni/restaurante-apps-interactivas.git
+```
 
 Ubicarse en la carpeta correcta
 ```
@@ -44,11 +58,32 @@ Ejecutar el proyecto en modo desarrollo
 ```
 ## Uso del Proyecto
 - Página principal: Muestra el Hero, categorías destacadas y nuevos sabores.
-- Menú: Explora los platos organizados por categorías.
+- Menú: Explora los platos organizados con posibilidad de filtrar por categorías.
 - Detalle del Plato: Muestra información detallada de un plato seleccionado.
 
-## Dependencias
-- **React**: Biblioteca para construir interfaces de usuario.
-- **React Router DOM**: Manejo de rutas en la aplicación.
-- **Tailwind CSS**: Framework de utilidades CSS para estilos rápidos.
-- **Lucide React**: Iconos SVG para la interfaz.
+## Estructura de datos utilizada
+Productos / Platos:
+```
+	{
+		"id": int -> Identificador de la preparación,
+		"nombre": string -> Nombre de la preparación,
+		"descripcion": string -> descripción breve de la preparación,
+		"ingredientes": string[] -> Ingredientes utilizados en la preparación,
+		"alergenos": string[] -> Alergenos utilizados en la preparación,
+		"precio": float -> Precio de la preparación,
+		"id_categoria": int -> ID de la categoria a la que pertenece la preparación,
+		"imagen": string -> Ruta relativa o absoluta a la que pertenece la preparación,
+		"nuevo_destacado": boolean -> Indicador de preparación destacada o no. 
+	},
+
+```
+Categorias:
+```
+	{
+		"id": int -> Identificador de la categoria,
+		"nombre": string -> Nombre de la categoria,
+		"descripcion": string -> descripción breve de la categoria,
+		"selected_categpry": boolean -> Indicador de categoria destacada o no. 
+	},
+
+```
