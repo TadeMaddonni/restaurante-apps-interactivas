@@ -29,8 +29,7 @@ const ProductCard = ({ name, image, description, price, allergens }) => {
                                 {allergens?.slice(0, 2).map((item, idx) => (
                                     <AllergenChip idx={idx} item={item} />
                                 ))}
-                                    <AllergenChip idx={"=1"} item={"=1"} />
-
+                                <AllergenChip idx={"=1"} item={`+${allergens.length-2}`} />
                             </div>
                         )}
                         {allergensCount < 3 && (

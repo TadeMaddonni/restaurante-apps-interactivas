@@ -5,10 +5,13 @@ import Footer from "./components/common/footer.jsx";
 import Home from "./components/pages/Home.jsx";
 import ProductDetail from "./components/pages/ProductDetail.jsx";
 import MenuPage from "./components/pages/Menu.jsx";
+import ScrollToTop from "./components/common/ScrollToTop";
+
 
 function App() {
     return (
         <Router>
+            <ScrollToTop />
             <Header />
             <main className="flex flex-col items-center bg-background">
                 <Routes>

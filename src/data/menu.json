@@ -135,7 +135,7 @@
         "nombre": "Fettuccine al pesto",
         "descripcion": "Fideos con salsa pesto de albahaca y nueces.",
         "ingredientes": ["Fideos", "Albahaca", "Aceite de oliva", "Nueces", "Queso parmesano"],
-        "alergenos": ["Gluten", "Frutos secos", "Lácteos"],
+        "alergenos": ["Gluten", "Frutos secos", "Lácteos","Huevo"],
         "precio": 11000
       }
     ],

@@ -107,7 +107,7 @@ export default function ProductDetail() {
                 </div>
             </div >
             <div className="w-full flex justify-center py-10">
-                <Link className=" cursor-pointer flex flex-col bg-[#E3870E] text-[#FEFDF8] py-4 px-8 text-2xl font-medium rounded-4xl">Volver al menú </Link>
+                <Link to="/platos" className=" cursor-pointer flex flex-col bg-[#E3870E] text-[#FEFDF8] py-4 px-8 text-2xl font-medium rounded-4xl">Volver al menú </Link>
             </div>
         </section>
     );

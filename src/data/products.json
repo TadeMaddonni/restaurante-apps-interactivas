@@ -216,7 +216,7 @@
 			"Nueces",
 			"Queso parmesano"
 		],
-		"alergenos": ["Gluten", "Frutos secos", "Lácteos"],
+		"alergenos": ["Gluten", "Frutos secos", "Lácteos","Huevo"],
 		"precio": 11000,
 		"id_categoria": 4,
 		"imagen": "https://www.chiselandfork.com/wp-content/uploads/2024/02/tagliatelle-pesto-1.jpg",

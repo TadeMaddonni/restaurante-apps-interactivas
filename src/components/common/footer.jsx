@@ -1,6 +1,7 @@
 import React from "react";
 import { Instagram, Facebook } from "lucide-react";
 import { RestaurantLogo } from "../icons/RestaurantLogo";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
 	return (
@@ -18,16 +19,33 @@ const Footer = () => {
 				{/* Navegación */}
 				<ul className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-sm md:text-base">
 					<li>
-						<a href="/menu">Menu</a>
+						<Link to="/platos">
+							Menú
+						</Link>
+					</li>
+				  <li>
+						<Link
+							to="/#categorias-destacadas"
+						
+						>
+							Categorias destacadas
+						</Link>
 					</li>
 					<li>
-						<a href="/reseñas">Reseñas</a>
+						<Link
+							to="/#nuevos-sabores"
+						
+						>
+							Nuevos Sabores
+						</Link>
 					</li>
 					<li>
-						<a href="/testimonios">Testimonios</a>
-					</li>
-					<li>
-						<a href="/contacto">Contacto</a>
+						<Link
+							to="/#location"
+						
+						>
+							Nosotros
+						</Link>
 					</li>
 				</ul>
 
