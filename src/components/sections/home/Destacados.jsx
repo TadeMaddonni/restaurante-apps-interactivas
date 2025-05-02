@@ -4,6 +4,7 @@ import CategoryData from "../../../data/category.json";
 import ProductData from "../../../data/products.json"; // Importa los productos
 import CategoryItem from "./Category-item";
 import { LoaderCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Destacados = () => {
 	const [categories, setCategories] = useState([]); // Categorías
@@ -139,8 +140,8 @@ const Destacados = () => {
 					donde la tradición y los sabores auténticos se combinan para ofrecerte
 					una experiencia culinaria inolvidable.
 				</p>
-				<a
-					href="/menu"
+				<Link
+					href="/platos"
 					className="text-[#E3870E] underline flex gap-1 font-medium underline-offset-4"
 				>
 					Ver Más
@@ -162,7 +163,7 @@ const Destacados = () => {
 							/>
 						</svg>
 					</div>
-				</a>
+				</Link>
 			</div>
 		</section>
 	);
