@@ -18,9 +18,11 @@ const MenuPage = () => {
     useEffect(() => {
         if (selectedCategory === 0) {
             setProducts([...ProductData])
+            window.scrollTo(0, 0);
         }else {
             const filteredProducts = ProductData.filter(prod => prod.id_categoria === selectedCategory)
             setProducts(filteredProducts)
+            window.scrollTo(0, 0);
         }
     }, [selectedCategory])
 
