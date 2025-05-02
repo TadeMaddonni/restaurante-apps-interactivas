@@ -80,7 +80,7 @@ const Header = () => {
                     </li>
                     <li>
                         <Link
-                            to="#categorias-destacadas"
+                            to="/#categorias-destacadas"
                             className="text-gray-700 hover:text-gray-900"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
