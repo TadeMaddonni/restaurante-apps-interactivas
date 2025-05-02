@@ -1,4 +1,5 @@
 import { FaStar } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Hero = () => {
 	return (
@@ -29,10 +30,12 @@ const Hero = () => {
 
 					{/* Center - Green Circle */}
 					<div className="relative cursor-pointer hover:scale-105 transform transition-transform duration-300">
-						<div className="bg-[#1a472a] text-white rounded-full w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center">
-							<span className="text-md font-display font-medium">Nuestros</span>
-							<span className="text-md font-display font-medium">sabores</span>
-						</div>
+						<Link to="/platos">
+							<div className="bg-[#1a472a] text-white rounded-full w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center">
+								<span className="text-md font-display font-medium">Nuestros</span>
+								<span className="text-md font-display font-medium">sabores</span>
+							</div>
+						</Link>
 					</div>
 
 					{/* Right - Chef and Rating */}

@@ -30,8 +30,14 @@ const Header = () => {
                     </div>
                     <div className="center flex items-center justify-center ml-10 gap-2">
                         {/* Logo del restaurante */}
-                        <UtensilsCrossed className="h-5 w-5" />
-                        <span className="font-bold font-display">Restaurante</span>
+                        <Link to={"/#inicio"} >
+                            <NavigationMenuLink >
+                                <div className="flex items-center gap-2">
+                                    <UtensilsCrossed className="h-5 w-5" />
+                                    <span className="font-bold font-display">Restaurante</span>
+                                </div>
+                            </NavigationMenuLink>
+                        </Link>
                     </div>
                     {/* Menú alineado a la derecha */}
                     <div className="flex gap-[24px] md:gap-[56px] lg:gap-[120px] items-center">

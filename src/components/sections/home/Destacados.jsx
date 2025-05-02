@@ -71,7 +71,7 @@ const Destacados = () => {
 						ofrecerte una experiencia culinaria inolvidable.
 					</p>
 					<a
-						href="/menu"
+						href="/platos"
 						className="text-[#E3870E] underline flex gap-1 font-medium underline-offset-4"
 					>
 						Ver Más
