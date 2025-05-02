@@ -34,7 +34,7 @@ const Header = () => {
                             <NavigationMenuLink >
                                 <div className="flex items-center gap-2">
                                     <UtensilsCrossed className="h-5 w-5" />
-                                    <span className="font-bold font-display">Restaurante</span>
+                                    <span className="font-bold font-display">Argentum</span>
                                 </div>
                             </NavigationMenuLink>
                         </Link>

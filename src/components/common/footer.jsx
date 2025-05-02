@@ -10,7 +10,7 @@ const Footer = () => {
 			<div className="w-full max-w-[1200px] flex items-center justify-center md:justify-start">
 				<div className="flex items-center gap-4">
 					<RestaurantLogo />
-					<span className="font-bold font-display text-4xl">Restaurante</span>
+					<span className="font-bold font-display text-4xl">Argentum</span>
 				</div>
 			</div>
 
@@ -23,7 +23,7 @@ const Footer = () => {
 							Menú
 						</Link>
 					</li>
-				  <li>
+				  	<li>
 						<Link
 							to="/#categorias-destacadas"
 						
@@ -75,7 +75,7 @@ const Footer = () => {
 			{/* Copyright */}
 			<div className="w-full max-w-[1200px]">
 				<p className="text-sm text-center md:text-left text-[#acacac]">
-					© 2023 Restaurante Argentino. Todos los derechos reservados.
+					© 2023 Argentum. Todos los derechos reservados.
 				</p>
 			</div>
 		</footer>
