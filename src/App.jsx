@@ -10,7 +10,7 @@ function App() {
     return (
         <Router>
             <Header />
-            <main className="flex flex-col justify-start items-center min-h-screen bg-background">
+            <main className="flex flex-col items-center bg-background">
                 <Routes>
                     {/* Ruta principal */}
                     <Route path="/" element={<Home />} />
