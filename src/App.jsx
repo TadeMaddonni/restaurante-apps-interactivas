@@ -11,6 +11,7 @@ import ScrollToTop from "./components/common/ScrollToTop";
 import AdminLogin from "./components/pages/AdminLogin.jsx";
 import AdminDashboard from "./components/pages/AdminDashboard.jsx";
 import DishesManagement from "./components/pages/admin/DishesManagement.jsx";
+import CategoriesManagement from "./components/pages/admin/CategoriesManagement.jsx";
 import UsersManagement from "./components/pages/admin/UsersManagement.jsx";
 import ProtectedRoute from "./components/admin/ProtectedRoute.jsx";
 
@@ -31,6 +32,11 @@ function App() {
                 <Route path="/admin/dashboard/dishes" element={
                     <ProtectedRoute>
                         <DishesManagement />
+                    </ProtectedRoute>
+                } />
+                <Route path="/admin/dashboard/categories" element={
+                    <ProtectedRoute>
+                        <CategoriesManagement />
                     </ProtectedRoute>
                 } />
                 <Route path="/admin/dashboard/users" element={

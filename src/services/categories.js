@@ -105,30 +105,10 @@ const authenticatedRequest = async (endpoint, options = {}) => {
     return data;
 };
 
-// Obtener todas las categorías (admin)
-export const getAllCategoriesAdmin = async () => {
-    try {
-        const data = await authenticatedRequest('/admin/categorias');
-        return { success: true, categories: data.categories };
-    } catch (error) {
-        return { success: false, error: error.message };
-    }
-};
-
-// Obtener una categoría por ID (admin)
-export const getCategoryByIdAdmin = async (id) => {
-    try {
-        const data = await authenticatedRequest(`/admin/categorias/${id}`);
-        return { success: true, category: data.category };
-    } catch (error) {
-        return { success: false, error: error.message };
-    }
-};
-
 // Crear una nueva categoría (admin)
 export const createCategory = async (categoryData) => {
     try {
-        const data = await authenticatedRequest('/admin/categorias', {
+        const data = await authenticatedRequest('/categorias', {
             method: 'POST',
             body: JSON.stringify(categoryData),
         });
@@ -141,7 +121,7 @@ export const createCategory = async (categoryData) => {
 // Actualizar una categoría (admin)
 export const updateCategory = async (id, categoryData) => {
     try {
-        const data = await authenticatedRequest(`/admin/categorias/${id}`, {
+        const data = await authenticatedRequest(`/categorias/${id}`, {
             method: 'PUT',
             body: JSON.stringify(categoryData),
         });
@@ -154,7 +134,7 @@ export const updateCategory = async (id, categoryData) => {
 // Eliminar una categoría (admin)
 export const deleteCategory = async (id) => {
     try {
-        await authenticatedRequest(`/admin/categorias/${id}`, {
+        await authenticatedRequest(`/categorias/${id}`, {
             method: 'DELETE',
         });
         return { success: true, message: 'Categoría eliminada exitosamente' };
@@ -166,7 +146,7 @@ export const deleteCategory = async (id) => {
 // Activar/desactivar una categoría (admin)
 export const toggleCategoryStatus = async (id, isActive) => {
     try {
-        const data = await authenticatedRequest(`/admin/categorias/${id}/status`, {
+        const data = await authenticatedRequest(`/categorias/${id}/status`, {
             method: 'PATCH',
             body: JSON.stringify({ isActive }),
         });
@@ -183,7 +163,7 @@ export const toggleCategoryStatus = async (id, isActive) => {
 // Reordenar categorías (admin)
 export const reorderCategories = async (categoryIds) => {
     try {
-        const data = await authenticatedRequest('/admin/categorias/reorder', {
+        const data = await authenticatedRequest('/categorias/reorder', {
             method: 'PUT',
             body: JSON.stringify({ categoryIds }),
         });

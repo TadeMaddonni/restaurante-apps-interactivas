@@ -6,14 +6,13 @@ import { Textarea } from '../../ui/textarea'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../ui/card'
 import AdminLayout from '../../admin/AdminLayout'
 import { 
-    getAllCategoriesAdmin, 
+    getAllCategories, 
     createCategory, 
     updateCategory, 
     deleteCategory, 
-    toggleCategoryStatus,
     validateCategoryData 
 } from '../../../services/categories'
-import { LoaderCircle, Plus, Edit, Trash2, Eye, EyeOff } from 'lucide-react'
+import { LoaderCircle, Plus, Edit, Trash2 } from 'lucide-react'
 
 const CategoriesManagement = () => {
     const [categories, setCategories] = useState([])
@@ -23,8 +22,7 @@ const CategoriesManagement = () => {
     const [showForm, setShowForm] = useState(false)
     const [formData, setFormData] = useState({
         nombre: '',
-        descripcion: '',
-        selected_category: true
+        descripcion: ''
     })
     const [errors, setErrors] = useState({})
 
@@ -37,7 +35,7 @@ const CategoriesManagement = () => {
         try {
             setLoading(true)
             setError(null)
-            const result = await getAllCategoriesAdmin()
+            const result = await getAllCategories()
             
             if (result.success) {
                 setCategories(result.categories || [])
@@ -94,7 +92,7 @@ const CategoriesManagement = () => {
             if (result.success) {
                 setShowForm(false)
                 setEditingCategory(null)
-                setFormData({ nombre: '', descripcion: '', selected_category: true })
+                setFormData({ nombre: '', descripcion: '' })
                 setErrors({})
                 loadCategories() // Recargar categorías
             } else {
@@ -109,8 +107,7 @@ const CategoriesManagement = () => {
         setEditingCategory(category)
         setFormData({
             nombre: category.nombre,
-            descripcion: category.descripcion,
-            selected_category: category.selected_category
+            descripcion: category.descripcion
         })
         setShowForm(true)
         setErrors({})
@@ -133,38 +130,34 @@ const CategoriesManagement = () => {
         }
     }
 
-    const handleToggleStatus = async (id, currentStatus) => {
-        try {
-            const result = await toggleCategoryStatus(id, !currentStatus)
-            if (result.success) {
-                loadCategories() // Recargar categorías
-            } else {
-                console.error('Error al cambiar estado:', result.error)
-            }
-        } catch (error) {
-            console.error('Error al cambiar estado:', error)
-        }
-    }
+
 
     const handleCancel = () => {
         setShowForm(false)
         setEditingCategory(null)
-        setFormData({ nombre: '', descripcion: '', selected_category: true })
+        setFormData({ nombre: '', descripcion: '' })
         setErrors({})
     }
 
+    const handleSidebarAction = (action) => {
+        if (action === 'add-category') {
+            setShowForm(true);
+        }
+    };
+
     return (
-        <AdminLayout>
+        <AdminLayout onSidebarAction={handleSidebarAction}>
             <div className="space-y-6">
                 <div className="flex justify-between items-center">
                     <h1 className="text-3xl font-bold">Gestión de Categorías</h1>
-                    <Button 
-                        onClick={() => setShowForm(true)}
-                        className="flex items-center gap-2"
-                    >
-                        <Plus size={16} />
-                        Nueva Categoría
-                    </Button>
+                                    <Button 
+                    variant="adminOrange"
+                    onClick={() => setShowForm(true)}
+                    className="flex items-center gap-2"
+                >
+                    <Plus size={16} />
+                    Nueva Categoría
+                </Button>
                 </div>
 
                 {/* Formulario */}
@@ -210,23 +203,13 @@ const CategoriesManagement = () => {
                                     )}
                                 </div>
 
-                                <div className="flex items-center space-x-2">
-                                    <input
-                                        type="checkbox"
-                                        id="selected_category"
-                                        name="selected_category"
-                                        checked={formData.selected_category}
-                                        onChange={handleInputChange}
-                                        className="rounded"
-                                    />
-                                    <Label htmlFor="selected_category">Categoría activa</Label>
-                                </div>
+
 
                                 <div className="flex gap-2">
-                                    <Button type="submit">
+                                    <Button type="submit" variant="adminOrange">
                                         {editingCategory ? 'Actualizar' : 'Crear'}
                                     </Button>
-                                    <Button type="button" variant="outline" onClick={handleCancel}>
+                                    <Button type="button" variant="adminGhost" onClick={handleCancel}>
                                         Cancelar
                                     </Button>
                                 </div>
@@ -249,7 +232,7 @@ const CategoriesManagement = () => {
                                 </div>
                                 <h3 className="text-lg font-semibold mb-2">Error</h3>
                                 <p className="text-muted-foreground mb-4">{error}</p>
-                                <Button onClick={loadCategories} variant="outline">
+                                <Button onClick={loadCategories} variant="adminGhost">
                                     Reintentar
                                 </Button>
                             </div>
@@ -263,29 +246,11 @@ const CategoriesManagement = () => {
                                             <div className="flex-1">
                                                 <h3 className="font-semibold text-lg">{category.nombre}</h3>
                                                 <p className="text-gray-600 text-sm">{category.descripcion}</p>
-                                                <div className="flex items-center gap-2 mt-2">
-                                                    <span className={`px-2 py-1 rounded-full text-xs ${
-                                                        category.selected_category 
-                                                            ? 'bg-green-100 text-green-800' 
-                                                            : 'bg-gray-100 text-gray-800'
-                                                    }`}>
-                                                        {category.selected_category ? 'Activa' : 'Inactiva'}
-                                                    </span>
-                                                </div>
                                             </div>
                                             
                                             <div className="flex items-center gap-2">
                                                 <Button
-                                                    variant="outline"
-                                                    size="sm"
-                                                    onClick={() => handleToggleStatus(category.id, category.selected_category)}
-                                                    title={category.selected_category ? 'Desactivar' : 'Activar'}
-                                                >
-                                                    {category.selected_category ? <EyeOff size={16} /> : <Eye size={16} />}
-                                                </Button>
-                                                
-                                                <Button
-                                                    variant="outline"
+                                                    variant="adminGhost"
                                                     size="sm"
                                                     onClick={() => handleEdit(category)}
                                                     title="Editar"
@@ -294,11 +259,11 @@ const CategoriesManagement = () => {
                                                 </Button>
                                                 
                                                 <Button
-                                                    variant="outline"
+                                                    variant="destructive"
                                                     size="sm"
                                                     onClick={() => handleDelete(category.id)}
                                                     title="Eliminar"
-                                                    className="text-red-600 hover:text-red-700"
+                                                    className="text-white"
                                                 >
                                                     <Trash2 size={16} />
                                                 </Button>

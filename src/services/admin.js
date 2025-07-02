@@ -84,7 +84,7 @@ export const updateDish = async (id, dishData) => {
     }
 };
 
-// Eliminar un plato
+// Eliminar un platog
 export const deleteDish = async (id) => {
     try {
         await authenticatedRequest(`/platos/${id}`, {
@@ -152,7 +152,7 @@ export const getUserById = async (id) => {
 // Crear un nuevo usuario
 export const createUser = async (userData) => {
     try {
-        const data = await authenticatedRequest('/users', {
+        const data = await authenticatedRequest('/users/register', {
             method: 'POST',
             body: JSON.stringify(userData),
         });

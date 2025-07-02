@@ -205,8 +205,14 @@ const DishesManagement = () => {
         );
     }
 
+    const handleSidebarAction = (action) => {
+        if (action === 'add-dish') {
+            setShowForm(true);
+        }
+    };
+
     return (
-        <AdminLayout>
+        <AdminLayout onSidebarAction={handleSidebarAction}>
             <div className="space-y-6">
                 {/* Header */}
                 <div className="flex items-center justify-between">
@@ -216,7 +222,7 @@ const DishesManagement = () => {
                             Administre los platos del menú del restaurante
                         </p>
                     </div>
-                    <Button onClick={() => setShowForm(true)}>
+                    <Button variant="adminOrange" onClick={() => setShowForm(true)}>
                         <Plus className="h-4 w-4 mr-2" />
                         Agregar Plato
                     </Button>
@@ -270,17 +276,17 @@ const DishesManagement = () => {
                                     </div>
                                     <div className="flex gap-1">
                                         <Button
-                                            variant="ghost"
+                                            variant="adminGhost"
                                             size="sm"
                                             onClick={() => handleEdit(dish)}
                                         >
-                                            <Edit className="h-4 w-4" />
+                                            <Edit className="h-4 w-4 text-amber-50" />
                                         </Button>
                                         <Button
-                                            variant="ghost"
+                                            variant="destructive"
                                             size="sm"
                                             onClick={() => handleDelete(dish.id)}
-                                            className="text-destructive hover:text-destructive"
+                                            className="text-white"
                                         >
                                             <Trash2 className="h-4 w-4" />
                                         </Button>
@@ -292,7 +298,7 @@ const DishesManagement = () => {
                                 </p>
                                 
                                 <div className="flex items-center justify-between">
-                                    <span className="font-semibold text-primary">
+                                    <span className="font-semibold text-brand-orange">
                                         ${dish.precio.toLocaleString()}
                                     </span>
                                     <span className="text-xs text-muted-foreground">
@@ -305,7 +311,7 @@ const DishesManagement = () => {
                                         {dish.alergenos.map((alergeno, index) => (
                                             <span
                                                 key={index}
-                                                className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full"
+                                                className="px-2 py-1 bg-[#E3870E] text-white text-xs rounded-full"
                                             >
                                                 {alergeno}
                                             </span>
@@ -437,17 +443,18 @@ const DishesManagement = () => {
                                     </div>
 
                                     <div className="flex gap-2 pt-4">
-                                        <Button type="submit" className="flex-1">
+                                        <Button type="submit" variant="adminOrange" className="flex-1">
                                             {editingDish ? 'Actualizar Plato' : 'Crear Plato'}
                                         </Button>
                                         <Button
                                             type="button"
-                                            variant="outline"
+                                            variant="adminGhost"
                                             onClick={() => {
                                                 setShowForm(false);
                                                 setEditingDish(null);
                                                 resetForm();
                                             }}
+                                            className={"text-white"}
                                         >
                                             Cancelar
                                         </Button>

@@ -4,7 +4,7 @@ import { Menu } from 'lucide-react';
 import Sidebar from './Sidebar';
 import { isAuthenticated, getCurrentUser } from '../../lib/auth';
 
-const AdminLayout = ({ children }) => {
+const AdminLayout = ({ children, onSidebarAction }) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
@@ -41,10 +41,10 @@ const AdminLayout = ({ children }) => {
     return (
         <div className="min-h-screen bg-background flex">
             {/* Sidebar */}
-            <Sidebar isOpen={sidebarOpen} onToggle={toggleSidebar} />
+            <Sidebar isOpen={sidebarOpen} onToggle={toggleSidebar} onAction={onSidebarAction} />
 
             {/* Contenido principal */}
-            <div className="w-full">
+            <div className="flex-1 min-w-0">
                 {/* Header móvil */}
                 <header className="lg:hidden bg-card border-b border-border px-4 py-3">
                     <div className="flex items-center justify-between">
@@ -68,7 +68,7 @@ const AdminLayout = ({ children }) => {
                 </header>
 
                 {/* Contenido */}
-                <main className="p-4 lg:p-6">
+                <main className="p-4 lg:p-6 min-h-screen">
                     {children}
                 </main>
             </div>

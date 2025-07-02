@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { 
-    Plus, 
-    Edit, 
-    Trash2, 
-    Search, 
+import {
+    Plus,
+    Edit,
+    Trash2,
+    Search,
     Shield,
     User,
     Crown,
@@ -27,8 +27,7 @@ const UsersManagement = () => {
     const [showForm, setShowForm] = useState(false);
     const [editingUser, setEditingUser] = useState(null);
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        nombre: '',
         email: '',
         password: '',
         role: 'admin'
@@ -73,7 +72,7 @@ const UsersManagement = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         try {
             let result;
             if (editingUser) {
@@ -101,8 +100,7 @@ const UsersManagement = () => {
     const handleEdit = (user) => {
         setEditingUser(user);
         setFormData({
-            firstName: user.firstName || '',
-            lastName: user.lastName || '',
+            nombre: user.nombre || '',
             email: user.email,
             password: '', // No mostrar password actual
             role: user.role
@@ -136,8 +134,7 @@ const UsersManagement = () => {
 
     const resetForm = () => {
         setFormData({
-            firstName: '',
-            lastName: '',
+            nombre: '',
             email: '',
             password: '',
             role: 'admin'
@@ -149,9 +146,8 @@ const UsersManagement = () => {
     };
 
     const filteredUsers = users.filter(user => {
-        const matchesSearch = user.firstName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                            user.lastName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                            user.email.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesSearch = user.nombre?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            user.email.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesRole = !selectedRole || user.role === selectedRole;
         return matchesSearch && matchesRole;
     });
@@ -188,8 +184,14 @@ const UsersManagement = () => {
         );
     }
 
+    const handleSidebarAction = (action) => {
+        if (action === 'add-user') {
+            setShowForm(true);
+        }
+    };
+
     return (
-        <AdminLayout>
+        <AdminLayout onSidebarAction={handleSidebarAction}>
             <div className="w-full space-y-6">
                 {/* Header */}
                 <div className="flex items-center justify-between">
@@ -199,7 +201,7 @@ const UsersManagement = () => {
                             Administre los usuarios del sistema
                         </p>
                     </div>
-                    <Button onClick={() => setShowForm(true)}>
+                    <Button variant="adminOrange" onClick={() => setShowForm(true)}>
                         <Plus className="h-4 w-4 mr-2" />
                         Agregar Usuario
                     </Button>
@@ -244,12 +246,12 @@ const UsersManagement = () => {
                     {filteredUsers.map((user) => {
                         const roleInfo = getRoleInfo(user.role);
                         const RoleIcon = roleInfo.icon;
-                        
+
                         return (
                             <Card key={user.id} className="p-4">
                                 <div className="space-y-3">
                                     <div className="flex items-start justify-between">
-                                        <div className="flex-1">
+                                        <div className="flex-1 flex flex-col gap-2">
                                             <div className="flex items-center gap-2 mb-1">
                                                 <RoleIcon className={`h-4 w-4 ${roleInfo.color}`} />
                                                 <span className="text-xs font-medium text-muted-foreground">
@@ -257,37 +259,33 @@ const UsersManagement = () => {
                                                 </span>
                                             </div>
                                             <h3 className="font-semibold text-foreground">
-                                                {user.firstName} {user.lastName}
+                                                {user.nombre}
                                             </h3>
                                             <p className="text-sm text-muted-foreground">{user.email}</p>
                                         </div>
                                         <div className="flex gap-1">
                                             <Button
-                                                variant="ghost"
+                                                variant="adminGhost"
                                                 size="sm"
                                                 onClick={() => handleEdit(user)}
                                             >
-                                                <Edit className="h-4 w-4" />
+                                                <Edit className="h-4 w-4 text-amber-50" />
                                             </Button>
                                             <Button
-                                                variant="ghost"
+                                                variant="destructive"
                                                 size="sm"
                                                 onClick={() => handleDelete(user.id)}
-                                                className="text-destructive hover:text-destructive"
                                             >
-                                                <Trash2 className="h-4 w-4" />
+                                                <Trash2 className="h-4 w-4 text-white" />
                                             </Button>
                                         </div>
                                     </div>
-                                    
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs text-muted-foreground">
-                                            Creado: {new Date(user.createdAt).toLocaleDateString()}
-                                        </span>
+
+                                    <div className="flex flex-col items-center justify-start gap-3">
                                         <Select
                                             value={user.role}
                                             onChange={(e) => handleRoleChange(user.id, e.target.value)}
-                                            className="text-xs"
+                                            className="text-xs cursor-pointer"
                                         >
                                             {roles.map(role => (
                                                 <SelectOption key={role.value} value={role.value}>
@@ -295,6 +293,9 @@ const UsersManagement = () => {
                                                 </SelectOption>
                                             ))}
                                         </Select>
+                                        <span className="text-xs text-muted-foreground">
+                                            Creado: {new Date(user.createdAt).toLocaleDateString()}
+                                        </span>
                                     </div>
                                 </div>
                             </Card>
@@ -320,7 +321,7 @@ const UsersManagement = () => {
                                         {editingUser ? 'Editar Usuario' : 'Agregar Usuario'}
                                     </h2>
                                     <Button
-                                        variant="ghost"
+                                        variant="adminGhost"
                                         size="sm"
                                         onClick={() => {
                                             setShowForm(false);
@@ -335,21 +336,11 @@ const UsersManagement = () => {
                                 <form onSubmit={handleSubmit} className="space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
-                                            <Label htmlFor="firstName">Nombre</Label>
+                                            <Label htmlFor="nombre">Nombre</Label>
                                             <Input
-                                                id="firstName"
-                                                name="firstName"
-                                                value={formData.firstName}
-                                                onChange={handleInputChange}
-                                                required
-                                            />
-                                        </div>
-                                        <div>
-                                            <Label htmlFor="lastName">Apellido</Label>
-                                            <Input
-                                                id="lastName"
-                                                name="lastName"
-                                                value={formData.lastName}
+                                                id="nombre"
+                                                name="nombre"
+                                                value={formData.nombre}
                                                 onChange={handleInputChange}
                                                 required
                                             />
@@ -400,12 +391,12 @@ const UsersManagement = () => {
                                     </div>
 
                                     <div className="flex gap-2 pt-4">
-                                        <Button type="submit" className="flex-1">
+                                        <Button type="submit" variant="adminOrange" className="flex-1">
                                             {editingUser ? 'Actualizar Usuario' : 'Crear Usuario'}
                                         </Button>
                                         <Button
                                             type="button"
-                                            variant="outline"
+                                            variant="adminGhost"
                                             onClick={() => {
                                                 setShowForm(false);
                                                 setEditingUser(null);

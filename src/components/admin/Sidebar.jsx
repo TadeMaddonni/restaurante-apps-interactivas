@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { logout } from '../../lib/auth';   
 
-const Sidebar = ({ isOpen, onToggle }) => {
+const Sidebar = ({ isOpen, onToggle, onAction }) => {
     const location = useLocation();
 
     const menuItems = [
@@ -35,8 +35,27 @@ const Sidebar = ({ isOpen, onToggle }) => {
                 },
                 {
                     title: 'Agregar plato',
-                    path: '/admin/dashboard/dishes/new',
-                    icon: Plus
+                    path: '/admin/dashboard/dishes',
+                    icon: Plus,
+                    action: 'add-dish'
+                }
+            ]
+        },
+        {
+            title: 'Categorías',
+            icon: BarChart3,
+            path: '/admin/dashboard/categories',
+            children: [
+                {
+                    title: 'Ver todas',
+                    path: '/admin/dashboard/categories',
+                    icon: Menu
+                },
+                {
+                    title: 'Agregar categoría',
+                    path: '/admin/dashboard/categories',
+                    icon: Plus,
+                    action: 'add-category'
                 }
             ]
         },
@@ -52,8 +71,9 @@ const Sidebar = ({ isOpen, onToggle }) => {
                 },
                 {
                     title: 'Agregar usuario',
-                    path: '/admin/dashboard/users/new',
-                    icon: Plus
+                    path: '/admin/dashboard/users',
+                    icon: Plus,
+                    action: 'add-user'
                 }
             ]
         },
@@ -88,16 +108,16 @@ const Sidebar = ({ isOpen, onToggle }) => {
 
             {/* Sidebar */}
             <div className={`
-                fixed top-0 left-0 h-full bg-sidebar border-r border-sidebar-border z-50
+                fixed top-0 left-0 h-screen bg-sidebar border-r border-sidebar-border z-50
                 transform transition-transform duration-300 ease-in-out
                 ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-                lg:translate-x-0 lg:static lg:z-auto
+                lg:translate-x-0 lg:sticky lg:top-0 lg:h-screen lg:z-auto
                 w-64 flex flex-col
             `}>
                 {/* Header del sidebar */}
                 <div className="flex items-center justify-between p-4 border-b border-sidebar-border flex-shrink-0">
                     <div className="flex items-center gap-2">
-                        <UtensilsCrossed className="h-6 w-6 text-sidebar-primary" />
+                        <UtensilsCrossed className="h-6 w-6 text-brand-orange" />
                         <span className="font-bold font-display text-sidebar-foreground">Admin Panel</span>
                     </div>
                     <button
@@ -118,8 +138,8 @@ const Sidebar = ({ isOpen, onToggle }) => {
                                 className={`
                                     flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors
                                     ${isActive(item.path, item.exact) 
-                                        ? 'bg-sidebar-primary text-sidebar-primary-foreground' 
-                                        : 'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
+                                        ? 'bg-[#4B5728] text-white' 
+                                        : 'text-sidebar-foreground hover:bg-brand-gray/20 hover:text-brand-orange'
                                     }
                                 `}
                             >
@@ -131,20 +151,34 @@ const Sidebar = ({ isOpen, onToggle }) => {
                             {item.children && isActive(item.path) && (
                                 <div className="ml-6 mt-2 space-y-1">
                                     {item.children.map((child, childIndex) => (
-                                        <Link
-                                            key={childIndex}
-                                            to={child.path}
-                                            className={`
-                                                flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors
-                                                ${isActive(child.path, true)
-                                                    ? 'bg-sidebar-primary/20 text-sidebar-primary'
-                                                    : 'text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent/50'
-                                                }
-                                            `}
-                                        >
-                                            <child.icon className="h-3 w-3 flex-shrink-0" />
-                                            <span className="truncate">{child.title}</span>
-                                        </Link>
+                                        child.action ? (
+                                            <button
+                                                key={childIndex}
+                                                onClick={() => onAction && onAction(child.action)}
+                                                className={`
+                                                    flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors w-full text-left
+                                                    text-sidebar-foreground/70 hover:text-brand-orange hover:bg-brand-gray/20
+                                                `}
+                                            >
+                                                <child.icon className="h-3 w-3 flex-shrink-0" />
+                                                <span className="truncate">{child.title}</span>
+                                            </button>
+                                        ) : (
+                                            <Link
+                                                key={childIndex}
+                                                to={child.path}
+                                                className={`
+                                                    flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors
+                                                    ${isActive(child.path, true)
+                                                        ? ' text-[#E3870E]'
+                                                        : 'text-sidebar-foreground/70 hover:text-brand-orange hover:bg-brand-gray/20'
+                                                    }
+                                                `}
+                                            >
+                                                <child.icon className="h-3 w-3 flex-shrink-0" />
+                                                <span className="truncate">{child.title}</span>
+                                            </Link>
+                                        )
                                     ))}
                                 </div>
                             )}
@@ -156,7 +190,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
                 <div className="flex-shrink-0 p-4 border-t border-sidebar-border">
                     <button
                         onClick={handleLogout}
-                        className="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground w-full transition-colors cursor-pointer"
+                        className="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-sidebar-foreground hover:bg-brand-gray/20 hover:text-brand-orange w-full transition-colors cursor-pointer"
                     >
                         <LogOut className="h-4 w-4 flex-shrink-0" />
                         <span className="truncate">Cerrar sesión</span>

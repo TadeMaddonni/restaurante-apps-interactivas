@@ -183,7 +183,7 @@ const AdminDashboard = () => {
                         </div>
                         <h3 className="text-lg font-semibold text-foreground mb-2">Error</h3>
                         <p className="text-muted-foreground mb-4">{error}</p>
-                        <Button onClick={loadAllData} variant="outline">
+                        <Button onClick={loadAllData} variant="adminGhost">
                             Reintentar
                         </Button>
                     </div>
@@ -193,7 +193,7 @@ const AdminDashboard = () => {
     }
 
     return (
-        <AdminLayout>
+        <AdminLayout onSidebarAction={() => {}}>
             <div className="space-y-6">
                 {/* Header */}
                 <div className="flex items-center justify-between">
@@ -204,7 +204,7 @@ const AdminDashboard = () => {
                         </p>
                     </div>
                     <div className="flex items-center gap-2">
-                        <TrendingUp className="h-5 w-5 text-primary" />
+                        <TrendingUp className="h-5 w-5 text-brand-orange" />
                         <span className="text-sm text-muted-foreground">
                             Última actualización: {new Date().toLocaleString()}
                         </span>
