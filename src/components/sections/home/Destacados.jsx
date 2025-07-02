@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Category from "./Selected-category";
-import CategoryData from "../../../data/category.json";
 import ProductData from "../../../data/products.json"; // Importa los productos
 import CategoryItem from "./Category-item";
 import { LoaderCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { getActiveCategories } from "../../../services/categories";
 
 const Destacados = () => {
 	const [categories, setCategories] = useState([]); // Categorías
@@ -13,10 +13,32 @@ const Destacados = () => {
 	const [selectedItem, setSelectedItem] = useState(null); // Plato seleccionado
 	const [selectedImage, setSelectedImage] = useState("hero-image.png"); // Imagen seleccionada
 	const [isImageLoading, setIsImageLoading] = useState(true); // Estado de carga de la imagen
+	const [loading, setLoading] = useState(true); // Estado de carga de categorías
 
-	// Cargar categorías al montar el componente
+	// Cargar categorías dinámicamente desde la API
 	useEffect(() => {
-		setCategories(CategoryData.filter(ctg => ctg.selected_category !== false)); // Carga las categorías desde el archivo JSON
+		const loadCategories = async () => {
+			try {
+				setLoading(true)
+				const result = await getActiveCategories()
+				
+				if (result.success) {
+					// Filtrar solo las categorías que están seleccionadas
+					const activeCategories = result.categories.filter(ctg => ctg.selected_category !== false)
+					setCategories(activeCategories)
+				} else {
+					console.error('Error al cargar categorías:', result.error)
+					setCategories([])
+				}
+			} catch (error) {
+				console.error('Error al cargar categorías:', error)
+				setCategories([])
+			} finally {
+				setLoading(false)
+			}
+		}
+		
+		loadCategories()
 	}, []);
 
 	// Filtrar platos según la categoría seleccionada
@@ -54,15 +76,24 @@ const Destacados = () => {
 						Categorías destacadas
 					</h2>
 					<div className="flex overflow-x-visible md:flex-wrap gap-2">
-						{categories.map((category) => (
-							<Category
-								key={category.id}
-								nombre={category.nombre}
-								id={category.id}
-								setCategory={setSelectedCategory}
-								selectedCategory={selectedCategory} // Pasar el estado seleccionado
-							/>
-						))}
+						{loading ? (
+							// Loading skeleton para categorías
+							Array.from({ length: 4 }).map((_, index) => (
+								<div key={index} className="animate-pulse">
+									<div className="h-10 w-24 bg-gray-200 rounded-3xl"></div>
+								</div>
+							))
+						) : (
+							categories.map((category) => (
+								<Category
+									key={category.id}
+									nombre={category.nombre}
+									id={category.id}
+									setCategory={setSelectedCategory}
+									selectedCategory={selectedCategory} // Pasar el estado seleccionado
+								/>
+							))
+						)}
 					</div>
 				</div>
 				<div className="hidden md:flex flex-col items-start gap-10 md:gap-8 text-left w-full md:w-3/8 md:pt-4">
