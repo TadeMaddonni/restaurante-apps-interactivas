@@ -13,6 +13,7 @@ import AdminDashboard from "./components/pages/AdminDashboard.jsx";
 import DishesManagement from "./components/pages/admin/DishesManagement.jsx";
 import CategoriesManagement from "./components/pages/admin/CategoriesManagement.jsx";
 import UsersManagement from "./components/pages/admin/UsersManagement.jsx";
+import LogsManagement from "./components/pages/admin/LogsManagement.jsx";
 import ProtectedRoute from "./components/admin/ProtectedRoute.jsx";
 import RoleProtectedRoute from "./components/admin/RoleProtectedRoute.jsx";
 import { ROLES } from "./lib/auth.js";
@@ -45,6 +46,20 @@ function App() {
                     <ProtectedRoute>
                         <RoleProtectedRoute allowedRoles={[ROLES.OWNER, ROLES.ADMIN]}>
                             <UsersManagement />
+                        </RoleProtectedRoute>
+                    </ProtectedRoute>
+                } />
+                <Route path="/admin/dashboard/logs" element={
+                    <ProtectedRoute>
+                        <RoleProtectedRoute allowedRoles={[ROLES.OWNER, ROLES.ADMIN]}>
+                            <LogsManagement />
+                        </RoleProtectedRoute>
+                    </ProtectedRoute>
+                } />
+                <Route path="/admin/dashboard/logs/all" element={
+                    <ProtectedRoute>
+                        <RoleProtectedRoute allowedRoles={[ROLES.OWNER, ROLES.ADMIN]}>
+                            <LogsManagement />
                         </RoleProtectedRoute>
                     </ProtectedRoute>
                 } />

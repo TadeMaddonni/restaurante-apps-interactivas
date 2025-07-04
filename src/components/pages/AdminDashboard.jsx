@@ -7,7 +7,11 @@ import {
     TrendingUp,
     Plus,
     Eye,
-    Settings
+    Settings,
+    Edit,
+    Trash2,
+    RotateCcw,
+    Activity
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -15,6 +19,7 @@ import AdminLayout from '../admin/AdminLayout';
 import { getAllPlates } from '../../services/plates';
 import { getAllCategories } from '../../services/categories';
 import { getAllUsers } from '../../services/auth';
+import { getRecentLogs, formatLogAction, getActionColor } from '../../services/logs';
 import { getCurrentUser, isOwner, isAdmin, canAccessUserManagement, ROLES } from '../../lib/auth';
 
 const AdminDashboard = () => {
@@ -37,10 +42,11 @@ const AdminDashboard = () => {
             setError(null);
 
             // Usar Promise.all para hacer todas las peticiones en paralelo
-            const [dishesResult, categoriesResult, usersResult] = await Promise.all([
+            const [dishesResult, categoriesResult, usersResult, logsResult] = await Promise.all([
                 getAllPlates(),
                 getAllCategories(),
-                getAllUsers()
+                getAllUsers(),
+                getRecentLogs() // Cargar logs reales del backend
             ]);
 
             // Procesar resultados
@@ -48,47 +54,26 @@ const AdminDashboard = () => {
             const totalCategories = categoriesResult.success ? (categoriesResult.categories?.length || 0) : 0;
             const totalUsers = usersResult.success ? (usersResult.users?.length || 0) : 0;
 
-            // Crear actividad reciente basada en los datos obtenidos
-            const recentActivity = [];
-            
-            if (dishesResult.success && dishesResult.dishes) {
-                // Ordenar platos por fecha de creación (más reciente primero) y tomar los últimos 3
-                const sortedDishes = [...dishesResult.dishes].sort((a, b) => 
-                    new Date(b.createdAt || 0) - new Date(a.createdAt || 0)
-                );
-                const recentDishes = sortedDishes.slice(0, 3);
-                recentDishes.forEach(dish => {
-                    recentActivity.push({
-                        description: `Plato "${dish.nombre}" disponible`,
-                        timestamp: dish.createdAt || new Date().toISOString(),
-                        type: 'dish'
-                    });
-                });
+            // Usar logs reales del backend para la actividad reciente
+            let recentActivity = [];
+            if (logsResult.success && logsResult.logs) {
+                // Tomar los primeros 5 logs más recientes
+                recentActivity = logsResult.logs.slice(0, 5).map(log => ({
+                    id: log.id,
+                    description: log.descripcion || formatLogAction(log),
+                    timestamp: log.createdAt,
+                    type: log.tabla?.toLowerCase() || 'activity',
+                    action: log.accion,
+                    usuario: log.usuario?.nombre || 'Usuario desconocido',
+                    tabla: log.tabla
+                }));
             }
-
-            if (usersResult.success && usersResult.users) {
-                // Ordenar usuarios por fecha de creación (más reciente primero) y tomar los últimos 2
-                const sortedUsers = [...usersResult.users].sort((a, b) => 
-                    new Date(b.createdAt || 0) - new Date(a.createdAt || 0)
-                );
-                const recentUsers = sortedUsers.slice(0, 2);
-                recentUsers.forEach(user => {
-                    recentActivity.push({
-                        description: `Usuario "${user.nombre}" registrado`,
-                        timestamp: user.createdAt || new Date().toISOString(),
-                        type: 'user'
-                    });
-                });
-            }
-
-            // Ordenar toda la actividad reciente por timestamp (más reciente primero)
-            recentActivity.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
             setStats({
                 totalDishes,
                 totalUsers,
                 totalCategories,
-                recentActivity: recentActivity.slice(0, 5) // Solo mostrar 5 actividades
+                recentActivity
             });
 
         } catch (error) {
@@ -132,7 +117,7 @@ const AdminDashboard = () => {
             title: 'Agregar Plato',
             description: 'Crear un nuevo plato para el menú',
             icon: Plus,
-            link: '/admin/dashboard/dishes/new',
+            link: '/admin/dashboard/dishes/',
             color: 'text-blue-600',
             bgColor: 'bg-blue-50'
         },
@@ -281,26 +266,70 @@ const AdminDashboard = () => {
                     <Card className="p-6">
                         {stats.recentActivity && stats.recentActivity.length > 0 ? (
                             <div className="space-y-4">
-                                {stats.recentActivity.map((activity, index) => (
-                                    <div key={index} className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/50">
-                                        <div className={`w-2 h-2 rounded-full ${
-                                            activity.type === 'dish' ? 'bg-blue-500' : 'bg-green-500'
-                                        }`}></div>
-                                        <div className="flex-1">
-                                            <p className="text-sm font-medium text-foreground">
-                                                {activity.description}
-                                            </p>
-                                            <p className="text-xs text-muted-foreground">
-                                                {new Date(activity.timestamp).toLocaleString()}
-                                            </p>
+                                {stats.recentActivity.map((activity) => {
+                                    // Función para obtener el ícono según la acción
+                                    const getActionIcon = (action) => {
+                                        switch (action) {
+                                            case 'CREAR':
+                                                return <Plus className="h-4 w-4" />;
+                                            case 'ACTUALIZAR':
+                                                return <Edit className="h-4 w-4" />;
+                                            case 'ELIMINAR':
+                                                return <Trash2 className="h-4 w-4" />;
+                                            case 'RESTAURAR':
+                                                return <RotateCcw className="h-4 w-4" />;
+                                            default:
+                                                return <Activity className="h-4 w-4" />;
+                                        }
+                                    };
+
+                                    // Función para obtener el color del borde según la tabla
+                                    const getTableColor = (tabla) => {
+                                        switch (tabla) {
+                                            case 'USERS':
+                                                return 'border-l-green-500';
+                                            case 'PLATOS':
+                                                return 'border-l-blue-500';
+                                            case 'CATEGORIAS':
+                                                return 'border-l-purple-500';
+                                            default:
+                                                return 'border-l-gray-500';
+                                        }
+                                    };
+
+                                    return (
+                                        <div 
+                                            key={activity.id} 
+                                            className={`flex items-start gap-3 p-3 rounded-lg hover:bg-accent/50 border-l-4 ${getTableColor(activity.tabla)}`}
+                                        >
+                                            <div className={`flex-shrink-0 p-2 rounded-full bg-accent ${getActionColor(activity.action)}`}>
+                                                {getActionIcon(activity.action)}
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <p className="text-sm font-medium text-foreground">
+                                                    {activity.description}
+                                                </p>
+                                                <p className="text-xs text-muted-foreground">
+                                                    Por {activity.usuario} • {new Date(activity.timestamp).toLocaleString('es-ES', {
+                                                        day: '2-digit',
+                                                        month: '2-digit',
+                                                        year: 'numeric',
+                                                        hour: '2-digit',
+                                                        minute: '2-digit'
+                                                    })}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         ) : (
                             <div className="text-center py-8">
-                                <BarChart3 className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                                <Activity className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                                 <p className="text-muted-foreground">No hay actividad reciente</p>
+                                <p className="text-xs text-muted-foreground mt-2">
+                                    Las acciones del sistema aparecerán aquí
+                                </p>
                             </div>
                         )}
                     </Card>

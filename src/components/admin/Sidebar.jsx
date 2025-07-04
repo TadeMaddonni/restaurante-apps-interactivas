@@ -9,7 +9,8 @@ import {
     X,
     BarChart3,
     Plus,
-    Edit
+    Edit,
+    Activity
 } from 'lucide-react';
 import { logout, getCurrentUser, isOwnerOrAdmin, canAccessUserManagement } from '../../lib/auth';   
 
@@ -76,6 +77,24 @@ const Sidebar = ({ isOpen, onToggle, onAction }) => {
                     path: '/admin/dashboard/users',
                     icon: Plus,
                     action: 'add-user'
+                }
+            ]
+        }] : []),
+        // Solo mostrar logs a administradores y propietarios
+        ...(canAccessUserManagement() ? [{
+            title: 'Logs',
+            icon: Activity,
+            path: '/admin/dashboard/logs',
+            children: [
+                {
+                    title: 'Actividad reciente',
+                    path: '/admin/dashboard/logs',
+                    icon: Activity
+                },
+                {
+                    title: 'Ver todos los logs',
+                    path: '/admin/dashboard/logs/all',
+                    icon: Menu
                 }
             ]
         }] : []),
