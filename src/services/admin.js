@@ -152,26 +152,79 @@ export const getUserById = async (id) => {
 // Crear un nuevo usuario
 export const createUser = async (userData) => {
     try {
+        // Preparar los datos según las especificaciones del backend
+        const requestBody = {
+            nombre: userData.nombre,
+            email: userData.email,
+            contraseña: userData.password, // Convertir 'password' a 'contraseña'
+        };
+
+        // Solo agregar rolId si se especifica y no es el valor por defecto (USER)
+        if (userData.rolId && userData.rolId !== 3) {
+            requestBody.rolId = userData.rolId;
+        }
+
         const data = await authenticatedRequest('/users/register', {
             method: 'POST',
-            body: JSON.stringify(userData),
+            body: JSON.stringify(requestBody),
         });
-        return { success: true, user: data.user, message: 'Usuario creado exitosamente' };
+        
+        return { 
+            success: true, 
+            user: data.user, 
+            message: data.message || 'Usuario creado exitosamente',
+            token: data.token // El backend devuelve un token
+        };
     } catch (error) {
-        return { success: false, error: error.message };
+        return { 
+            success: false, 
+            error: error.message,
+            message: error.message 
+        };
     }
 };
 
 // Actualizar un usuario
 export const updateUser = async (id, userData) => {
     try {
+        // Preparar los datos según las especificaciones del backend
+        const requestBody = {};
+
+        // Solo agregar campos que se han proporcionado (campos opcionales)
+        if (userData.nombre && userData.nombre.trim() !== '') {
+            requestBody.nombre = userData.nombre.trim();
+        }
+
+        if (userData.email && userData.email.trim() !== '') {
+            requestBody.email = userData.email.trim();
+        }
+
+        // Solo agregar contraseña si se proporciona y no está vacía
+        if (userData.password && userData.password.trim() !== '') {
+            requestBody.contraseña = userData.password;
+        }
+
+        // Solo agregar rolId si se especifica (solo owners pueden cambiar roles)
+        if (userData.rolId !== undefined && userData.rolId !== null) {
+            requestBody.rolId = userData.rolId;
+        }
+
         const data = await authenticatedRequest(`/users/${id}`, {
             method: 'PUT',
-            body: JSON.stringify(userData),
+            body: JSON.stringify(requestBody),
         });
-        return { success: true, user: data.user, message: 'Usuario actualizado exitosamente' };
+        
+        return { 
+            success: true, 
+            user: data.user, 
+            message: data.message || 'Usuario actualizado exitosamente' 
+        };
     } catch (error) {
-        return { success: false, error: error.message };
+        return { 
+            success: false, 
+            error: error.message,
+            message: error.message 
+        };
     }
 };
 

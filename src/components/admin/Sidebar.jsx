@@ -11,10 +11,11 @@ import {
     Plus,
     Edit
 } from 'lucide-react';
-import { logout } from '../../lib/auth';   
+import { logout, getCurrentUser, isOwnerOrAdmin, canAccessUserManagement } from '../../lib/auth';   
 
 const Sidebar = ({ isOpen, onToggle, onAction }) => {
     const location = useLocation();
+    const currentUser = getCurrentUser();
 
     const menuItems = [
         {
@@ -59,7 +60,8 @@ const Sidebar = ({ isOpen, onToggle, onAction }) => {
                 }
             ]
         },
-        {
+        // Solo mostrar gestión de usuarios si tiene permisos
+        ...(canAccessUserManagement() ? [{
             title: 'Usuarios',
             icon: Users,
             path: '/admin/dashboard/users',
@@ -76,7 +78,7 @@ const Sidebar = ({ isOpen, onToggle, onAction }) => {
                     action: 'add-user'
                 }
             ]
-        },
+        }] : []),
         {
             title: 'Configuración',
             icon: Settings,

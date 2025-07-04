@@ -75,4 +75,47 @@ export const getAllUsers = async () => {
     }
 };
 
- 
+// Función para registro público de usuarios (sin autenticación requerida)
+export const registerUser = async (userData) => {
+    try {
+        const requestBody = {
+            nombre: userData.nombre,
+            email: userData.email,
+            contraseña: userData.password, // Convertir 'password' a 'contraseña'
+            // No incluir rolId para registro público (será USER por defecto)
+        };
+
+        const response = await fetch(`${API_BASE_URL}/users/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestBody),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Error en el registro');
+        }
+
+        // Guardar token y información del usuario si el registro es exitoso
+        if (data.token) {
+            setAuthToken(data.token);
+            setCurrentUser(data.user);
+        }
+
+        return {
+            success: true,
+            user: data.user,
+            token: data.token,
+            message: data.message || 'Usuario registrado exitosamente',
+        };
+    } catch (error) {
+        return {
+            success: false,
+            error: error.message,
+        };
+    }
+};
+

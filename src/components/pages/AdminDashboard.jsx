@@ -15,6 +15,7 @@ import AdminLayout from '../admin/AdminLayout';
 import { getAllPlates } from '../../services/plates';
 import { getAllCategories } from '../../services/categories';
 import { getAllUsers } from '../../services/auth';
+import { getCurrentUser, isOwner, isAdmin, canAccessUserManagement, ROLES } from '../../lib/auth';
 
 const AdminDashboard = () => {
     const [stats, setStats] = useState({
@@ -107,14 +108,15 @@ const AdminDashboard = () => {
             bgColor: 'bg-blue-50',
             link: '/admin/dashboard/dishes'
         },
-        {
+        // Solo mostrar estadísticas de usuarios a quienes tienen permisos
+        ...(canAccessUserManagement() ? [{
             title: 'Total Usuarios',
             value: stats.totalUsers,
             icon: Users,
             color: 'text-green-600',
             bgColor: 'bg-green-50',
             link: '/admin/dashboard/users'
-        },
+        }] : []),
         {
             title: 'Categorías',
             value: stats.totalCategories,
@@ -202,6 +204,19 @@ const AdminDashboard = () => {
                         <p className="text-muted-foreground mt-1">
                             Bienvenido al panel de administración de Argentum
                         </p>
+                        {/* Información del rol del usuario */}
+                        <div className="mt-2 flex items-center gap-2">
+                            <span className="text-sm font-medium text-foreground">
+                                Rol actual:
+                            </span>
+                            <span className={`text-sm px-2 py-1 rounded-full ${
+                                isOwner() ? 'bg-purple-100 text-purple-800' :
+                                isAdmin() ? 'bg-blue-100 text-blue-800' :
+                                'bg-green-100 text-green-800'
+                            }`}>
+                                {isOwner() ? 'Propietario' : isAdmin() ? 'Administrador' : 'Usuario'}
+                            </span>
+                        </div>
                     </div>
                     <div className="flex items-center gap-2">
                         <TrendingUp className="h-5 w-5 text-brand-orange" />

@@ -14,6 +14,8 @@ import DishesManagement from "./components/pages/admin/DishesManagement.jsx";
 import CategoriesManagement from "./components/pages/admin/CategoriesManagement.jsx";
 import UsersManagement from "./components/pages/admin/UsersManagement.jsx";
 import ProtectedRoute from "./components/admin/ProtectedRoute.jsx";
+import RoleProtectedRoute from "./components/admin/RoleProtectedRoute.jsx";
+import { ROLES } from "./lib/auth.js";
 
 
 function App() {
@@ -41,7 +43,9 @@ function App() {
                 } />
                 <Route path="/admin/dashboard/users" element={
                     <ProtectedRoute>
-                        <UsersManagement />
+                        <RoleProtectedRoute allowedRoles={[ROLES.OWNER, ROLES.ADMIN]}>
+                            <UsersManagement />
+                        </RoleProtectedRoute>
                     </ProtectedRoute>
                 } />
 
