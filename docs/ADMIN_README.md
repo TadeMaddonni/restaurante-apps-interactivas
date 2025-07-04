@@ -43,11 +43,12 @@ src/
 ├── components/
 │   ├── pages/
 │   │   ├── AdminLogin.jsx
-│   │   ├── AdminSignup.jsx
 │   │   ├── AdminDashboard.jsx
 │   │   └── admin/
 │   │       ├── DishesManagement.jsx
 │   │       └── UsersManagement.jsx
+│   │       └── LogsManagment.jsx
+│   │       └── CategoriesManagment.jsx
 │   ├── admin/
 │   │   ├── AdminLayout.jsx
 │   │   ├── Sidebar.jsx
@@ -63,21 +64,20 @@ src/
 
 ### Autenticación
 - `/admin/login` - Página de login
-- `/admin/signup` - Página de registro
 
 ### Dashboard (Protegidas)
 - `/admin/dashboard` - Dashboard principal
 - `/admin/dashboard/dishes` - Gestión de platos
 - `/admin/dashboard/users` - Gestión de usuarios
+- `/admin/dashboard/categories` - Gestión de Categorias
+- `/admin/dashboard/logs` - Gestión de Auditoria
+
 
 ## Servicios API
 
 ### Autenticación (`auth.js`)
 - `loginAdmin(email, password)` - Login de administrador
-- `signupAdmin(userData)` - Registro de administrador
-- `verifyToken()` - Verificar token de autenticación
 - `logout()` - Cerrar sesión
-- `changePassword(currentPassword, newPassword)` - Cambiar contraseña
 
 ### Administración (`admin.js`)
 - `getAllDishes()` - Obtener todos los platos
@@ -89,7 +89,6 @@ src/
 - `updateUser(id, userData)` - Actualizar usuario
 - `deleteUser(id)` - Eliminar usuario
 - `changeUserRole(id, role)` - Cambiar rol de usuario
-- `getDashboardStats()` - Obtener estadísticas del dashboard
 
 ## Configuración
 
@@ -126,7 +125,12 @@ VITE_API_URL=http://localhost:3001/api
 3. Editar información existente
 4. Cambiar roles directamente desde la lista
 
-### 4. Navegación
+### 4. Gestión de Categorias
+1. Ir a "Categorias" en el sidebar
+2. Usar "Agregar Categoria" para crear nuevas.
+3. Editar información existente
+
+### 5. Navegación
 - **Sidebar**: Navegación principal entre secciones
 - **Breadcrumbs**: Indicador de ubicación actual
 - **Acciones rápidas**: Acceso directo desde el dashboard
@@ -148,20 +152,9 @@ El sistema utiliza:
 
 ## Próximas Funcionalidades
 
-- [ ] Gestión de categorías
 - [ ] Subida de imágenes
-- [ ] Estadísticas avanzadas
 - [ ] Notificaciones en tiempo real
 - [ ] Exportación de datos
 - [ ] Configuraciones del restaurante
 - [ ] Gestión de reservas
-- [ ] Reportes y analytics
-
-## Notas Técnicas
-
-- El sistema está preparado para conectarse a una API REST
-- Todas las funciones de servicio están listas para integración
-- Los componentes son completamente funcionales con datos mock
-- El diseño es responsive y accesible
-- La arquitectura permite fácil extensión de funcionalidades
-- **Compatible con Vite**: Usa `import.meta.env` para variables de entorno 
+- [ ] Estadísticas avanzadas y Reportes

@@ -61,7 +61,6 @@ const Destacados = () => {
 	};
 
 	const handleImageChange = (image) => {
-		console.log(image)
 		if (selectedImage === image) return;
 		
 		setSelectedImage(image)

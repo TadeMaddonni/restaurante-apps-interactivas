@@ -39,8 +39,6 @@ const LogsManagement = () => {
         tabla: '',
         accion: '',
         usuarioId: '',
-        fechaDesde: '',
-        fechaHasta: ''
     });
 
     const tablas = [
@@ -68,7 +66,7 @@ const LogsManagement = () => {
             setError(null);
 
             const result = await getLogs(filters);
-            
+
             if (result.success) {
                 setLogs(result.logs || []);
                 setPagination(result.pagination || {
@@ -110,8 +108,6 @@ const LogsManagement = () => {
             tabla: '',
             accion: '',
             usuarioId: '',
-            fechaDesde: '',
-            fechaHasta: ''
         });
     };
 
@@ -210,7 +206,7 @@ const LogsManagement = () => {
                                 ))}
                             </Select>
                         </div>
-                        
+
                         <div>
                             <Label htmlFor="accion">Acción</Label>
                             <Select
@@ -226,29 +222,9 @@ const LogsManagement = () => {
                             </Select>
                         </div>
 
-                        <div>
-                            <Label htmlFor="fechaDesde">Fecha desde</Label>
-                            <Input
-                                id="fechaDesde"
-                                type="date"
-                                value={filters.fechaDesde}
-                                onChange={(e) => handleFilterChange('fechaDesde', e.target.value)}
-                            />
-                        </div>
-
-                        <div>
-                            <Label htmlFor="fechaHasta">Fecha hasta</Label>
-                            <Input
-                                id="fechaHasta"
-                                type="date"
-                                value={filters.fechaHasta}
-                                onChange={(e) => handleFilterChange('fechaHasta', e.target.value)}
-                            />
-                        </div>
-
                         <div className="flex items-end">
-                            <Button 
-                                variant="outline" 
+                            <Button
+                                variant="outline"
                                 onClick={clearFilters}
                                 className="w-full"
                             >
@@ -266,7 +242,7 @@ const LogsManagement = () => {
                                 <div className={`flex-shrink-0 p-2 rounded-full bg-accent ${getActionColor(log.accion)}`}>
                                     {getActionIcon(log.accion)}
                                 </div>
-                                
+
                                 <div className="flex-1 min-w-0">
                                     <div className="space-y-1">
                                         <h3 className="text-sm font-medium text-foreground truncate">
@@ -300,19 +276,18 @@ const LogsManagement = () => {
                                             )}
                                         </div>
                                     </div>
-                                    
+
                                     <div className="flex justify-end">
-                                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                                            log.accion === 'CREAR' ? 'bg-green-100 text-green-800' :
-                                            log.accion === 'ACTUALIZAR' ? 'bg-blue-100 text-blue-800' :
-                                            log.accion === 'ELIMINAR' ? 'bg-red-100 text-red-800' :
-                                            log.accion === 'RESTAURAR' ? 'bg-purple-100 text-purple-800' :
-                                            'bg-gray-100 text-gray-800'
-                                        }`}>
+                                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${log.accion === 'CREAR' ? 'bg-green-100 text-green-800' :
+                                                log.accion === 'ACTUALIZAR' ? 'bg-blue-100 text-blue-800' :
+                                                    log.accion === 'ELIMINAR' ? 'bg-red-100 text-red-800' :
+                                                        log.accion === 'RESTAURAR' ? 'bg-purple-100 text-purple-800' :
+                                                            'bg-gray-100 text-gray-800'
+                                            }`}>
                                             {log.accion}
                                         </span>
                                     </div>
-                                    
+
                                     {/* Mostrar datos adicionales si están disponibles */}
                                     {log.datosNuevos && Object.keys(log.datosNuevos).length > 0 && (
                                         <details className="mt-2">
@@ -342,13 +317,13 @@ const LogsManagement = () => {
                 {/* Paginación */}
                 {pagination.totalPages > 1 && (
                     <Card className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex md:flex-row flex-col gap-2 items-center justify-between">
                             <div className="text-sm text-muted-foreground">
                                 Página {pagination.currentPage} de {pagination.totalPages}
                                 {' • '}
                                 {pagination.totalItems} registros total
                             </div>
-                            
+
                             <div className="flex items-center gap-2">
                                 <Button
                                     variant="outline"
@@ -359,12 +334,12 @@ const LogsManagement = () => {
                                     <ChevronLeft className="h-4 w-4" />
                                     Anterior
                                 </Button>
-                                
+
                                 <div className="flex items-center gap-1">
                                     {Array.from({ length: Math.min(5, pagination.totalPages) }, (_, i) => {
                                         const pageNum = Math.max(1, pagination.currentPage - 2) + i;
                                         if (pageNum > pagination.totalPages) return null;
-                                        
+
                                         return (
                                             <Button
                                                 key={pageNum}
@@ -378,7 +353,7 @@ const LogsManagement = () => {
                                         );
                                     })}
                                 </div>
-                                
+
                                 <Button
                                     variant="outline"
                                     size="sm"

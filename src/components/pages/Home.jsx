@@ -9,7 +9,7 @@ function Home() {
     return (
         <div className="w-full">
             <Hero />
-            <Destacados />
+            {/* <Destacados /> */}
             <OurEnvironment />
             <SelectedDishes />
             <Location />

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import ProductCard from './ProductCard'
 
 const MenuList = ({ products }) => {
-    console.log('Products received:', products);
 
     // Asegurar que products sea un array
     const productsArray = Array.isArray(products) ? products : [];

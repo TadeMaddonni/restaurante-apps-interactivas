@@ -31,9 +31,8 @@ const Hero = () => {
 					{/* Center - Green Circle */}
 					<div className="relative cursor-pointer hover:scale-105 transform transition-transform duration-300">
 						<Link to="/platos">
-							<div className="bg-[#1a472a] text-white rounded-full w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center">
-								<span className="text-md font-display font-medium">Nuestros</span>
-								<span className="text-md font-display font-medium">sabores</span>
+							<div className="bg-[#1a472a] text-white rounded-full  py-3	 px-5 flex  items-center justify-center">
+								Nuestros sabores
 							</div>
 						</Link>
 					</div>

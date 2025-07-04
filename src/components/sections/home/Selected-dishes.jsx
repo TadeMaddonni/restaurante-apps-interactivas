@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import data from "../../../data/products.json";
 import Item from "./Selected-item";
+import { getAllPlates } from "../../../services/plates";
 
 const SelectedDishes = () => {
 	const [selectedDishes, setSelectedDishes] = useState([]);
@@ -10,10 +11,14 @@ const SelectedDishes = () => {
 
 	useEffect(() => {
 		// Fetch dishes
-		const dishes = data.filter((dish) => dish.nuevo_destacado === true);
-		// Set the first image as default & set the selected dishes
-		setSelectedDishes(dishes);
-		setSelectedImage(dishes[0]?.imagen || "/assets/hero-image.png");
+		const fetchDishes = async () => {
+			const allDishes = await getAllPlates();
+			setSelectedDishes(allDishes.dishes.slice(0, 4));
+			setSelectedImage(allDishes[0]?.image_path || "/assets/hero-image.png");
+		}
+		fetchDishes();
+
+		setSelectedImage(selectedDishes[0]?.imagen || "/assets/hero-image.png");
 	}, []);
 
 	return (
@@ -30,7 +35,7 @@ const SelectedDishes = () => {
 							id={dish.id}
 							title={dish.nombre}
 							description={dish.descripcion}
-							image={dish.imagen}
+							image={dish.image_path}
 							setImage={setSelectedImage}
 						/>
 					))}
@@ -53,7 +58,7 @@ const SelectedDishes = () => {
 							id={dish.id}
 							title={dish.nombre}
 							description={dish.descripcion}
-							image={dish.imagen}
+							image={dish.image_path}
 							setImage={setSelectedImage}
 						/>
 					))}
@@ -66,7 +71,7 @@ const SelectedDishes = () => {
 							id={dish.id}
 							title={dish.nombre}
 							description={dish.descripcion}
-							image={dish.imagen}
+							image={dish.image_path}
 							setImage={setSelectedImage}
 						/>
 					))}

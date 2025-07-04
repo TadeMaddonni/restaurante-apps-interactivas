@@ -111,6 +111,11 @@ const CategoriesManagement = () => {
         })
         setShowForm(true)
         setErrors({})
+        
+        // Hacer scroll hacia arriba para mostrar el formulario
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        }, 100)
     }
 
     const handleDelete = async (id) => {

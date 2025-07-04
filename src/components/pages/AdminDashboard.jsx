@@ -113,29 +113,29 @@ const AdminDashboard = () => {
     ];
 
     const quickActions = [
-        {
-            title: 'Agregar Plato',
-            description: 'Crear un nuevo plato para el menú',
-            icon: Plus,
-            link: '/admin/dashboard/dishes/',
-            color: 'text-blue-600',
-            bgColor: 'bg-blue-50'
-        },
+        // {
+        //     title: 'Agregar Plato',
+        //     description: 'Crear un nuevo plato para el menú',
+        //     icon: Plus,
+        //     link: '/admin/dashboard/dishes/',
+        //     color: 'text-blue-600',
+        //     bgColor: 'bg-blue-50'
+        // },
         {
             title: 'Ver Platos',
             description: 'Gestionar todos los platos existentes',
             icon: Eye,
             link: '/admin/dashboard/dishes',
-            color: 'text-green-600',
-            bgColor: 'bg-green-50'
+            color: 'text-blue-600',
+            bgColor: 'bg-blue-50'
         },
         ...(isOwner() || isAdmin() ? [{
             title: 'Ver Usuarios',
             description: 'Gestionar usuarios del sistema',
             icon: Users,
             link: '/admin/dashboard/users',
-            color: 'text-purple-600',
-            bgColor: 'bg-purple-50'
+            color: 'text-green-600',
+            bgColor: 'bg-green-50'
         }, {
             title: 'Ver Logs',
             description: 'Ver todos los logs del sistema',
@@ -143,6 +143,13 @@ const AdminDashboard = () => {
             link: '/admin/dashboard/logs',
             color: 'text-orange-600',
             bgColor: 'bg-orange-50'
+        }, {
+            title: 'Ver Categorias',
+            description: 'Ver todas las categorias del sistema',
+            icon: BarChart3,
+            link: '/admin/dashboard/categories',
+            color: 'text-purple-600',
+            bgColor: 'bg-purple-50'
         }] : [])
     ];
 

@@ -209,8 +209,8 @@ const Sidebar = ({ isOpen, onToggle, onAction }) => {
                         onClick={handleLogout}
                         className="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-sidebar-foreground hover:bg-brand-gray/20 hover:text-brand-orange w-full transition-colors cursor-pointer"
                     >
-                        <LogOut className="h-4 w-4 flex-shrink-0" />
-                        <span className="truncate">Cerrar sesión</span>
+                        <LogOut className="h-4 w-4 flex-shrink-0 text-destructive" />
+                        <span className="truncate text-destructive">Cerrar sesión</span>
                     </button>
                 </div>
             </div>

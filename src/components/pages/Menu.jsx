@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { getAllPlates } from '../../services/plates'
 import { getAllCategories } from '../../services/categories'
 import { useSearchParams } from 'react-router-dom'
+import { Button } from '../ui/button'
 
 const MenuPage = () => {
     const [categories, setCategories] = useState([]); // Categorías
@@ -12,14 +13,13 @@ const MenuPage = () => {
     const [products, setProducts] = useState([]) // Inicializar como array vacío
     const [loading, setLoading] = useState(true)
     const [searchParams, setSearchParams] = useSearchParams()
-    
     // Cargar categorías dinámicamente desde la API
     useEffect(() => {
         const loadCategories = async () => {
             try {
                 setLoading(true)
                 const result = await getAllCategories()
-                
+
                 if (result.success) {
                     setCategories(result.categories)
                 } else {
@@ -33,7 +33,7 @@ const MenuPage = () => {
                 setLoading(false)
             }
         }
-        
+
         loadCategories()
     }, []);
 
@@ -53,22 +53,27 @@ const MenuPage = () => {
         }
     }, [searchParams, setSearchParams])
 
+    // Función para borrar filtros
+    const handleClearFilters = () => {
+        setSelectedCategory(0)
+        setSearchParams({})
+    }
+
     // Cargar platos según la categoría seleccionada
     useEffect(() => {
         const loadDishes = async () => {
             try {
                 setLoading(true)
-                
+
                 const result = await getAllPlates(selectedCategory)
-                console.log('Plates result:', result);
-                
+
                 if (result.success && Array.isArray(result.dishes)) {
                     setProducts(result.dishes)
                 } else {
                     console.error('Error al cargar platos:', result.error)
                     setProducts([])
                 }
-                
+
                 window.scrollTo(0, 0)
             } catch (error) {
                 console.error('Error al cargar platos:', error)
@@ -77,14 +82,14 @@ const MenuPage = () => {
                 setLoading(false)
             }
         }
-        
+
         loadDishes()
     }, [selectedCategory])
 
     // Función para manejar el cambio de categoría y actualizar URL
     const handleCategoryChange = (categoryId) => {
         setSelectedCategory(categoryId)
-        
+
         if (categoryId === 0) {
             // Remover parámetro de categoría si es "Todos"
             setSearchParams({})
@@ -116,15 +121,27 @@ const MenuPage = () => {
                                     </div>
                                 ))
                             ) : (
-                                categories.map((category) => (
-                                    <Category
-                                        key={category.id}
-                                        nombre={category.nombre}
-                                        id={category.id}
-                                        setCategory={handleCategoryChange}
-                                        selectedCategory={selectedCategory}
-                                    />
-                                ))
+                                <>
+                                    {categories.map((category) => (
+                                        <Category
+                                            key={category.id}
+                                            nombre={category.nombre}
+                                            id={category.id}
+                                            setCategory={handleCategoryChange}
+                                            selectedCategory={selectedCategory}
+                                        />
+                                    ))}
+                                    {searchParams.get('category') && (
+                                        <div>
+                                            <Button
+                                                className="border cursor-pointer underline hover:border-none ring-0 rounded-3xl px-4 text-black bg-transparent hover:bg-transparent hover:border-black bordernone"
+                                                size="lg"
+                                                onClick={handleClearFilters}>
+                                                Borrar Filtros
+                                            </Button>
+                                        </div>
+                                    )}
+                                </>
                             )}
                         </div>
                     </div>
