@@ -14,7 +14,7 @@ const SelectedDishes = () => {
 		const fetchDishes = async () => {
 			const allDishes = await getAllPlates();
 			setSelectedDishes(allDishes.dishes.slice(0, 4));
-			setSelectedImage(allDishes[0]?.image_path || "/assets/hero-image.png");
+			setSelectedImage(allDishes?.dishes[0]?.image_path || "/assets/hero-image.png");
 		}
 		fetchDishes();
 

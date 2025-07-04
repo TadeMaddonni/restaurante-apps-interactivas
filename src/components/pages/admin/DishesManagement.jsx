@@ -426,6 +426,7 @@ const DishesManagement = () => {
                                                 name="precio"
                                                 type="number"
                                                 value={formData.precio}
+                                                min={0}
                                                 onChange={handleInputChange}
                                                 required
                                             />

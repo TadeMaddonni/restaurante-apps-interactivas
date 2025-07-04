@@ -111,6 +111,8 @@ const UsersManagement = () => {
             return;
         }
 
+        console.log(formData)
+
         if (editingUser) {
             // ========== VALIDACIONES PARA EDICIÓN ==========
             
@@ -158,7 +160,7 @@ const UsersManagement = () => {
                     alert('No tienes permisos para cambiar el rol de este usuario');
                     return;
                 }
-                userData.rolId = formData.rolId;
+                userData.rolId =parseInt(formData.rolId);
             }
 
             // Si no hay cambios, no hacer nada
@@ -594,7 +596,7 @@ const UsersManagement = () => {
                                         >
                                             {editingUser ? (
                                                 // Para edición, mostrar todos los roles pero deshabilitar el select si no tiene permisos
-                                                roles.map(role => (
+                                                availableRoles.map(role => (
                                                     <SelectOption key={role.value} value={role.value}>
                                                         {role.label}
                                                     </SelectOption>
