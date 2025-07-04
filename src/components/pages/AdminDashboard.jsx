@@ -129,22 +129,21 @@ const AdminDashboard = () => {
             color: 'text-green-600',
             bgColor: 'bg-green-50'
         },
-        {
+        ...(isOwner() || isAdmin() ? [{
             title: 'Ver Usuarios',
             description: 'Gestionar usuarios del sistema',
             icon: Users,
             link: '/admin/dashboard/users',
             color: 'text-purple-600',
             bgColor: 'bg-purple-50'
-        },
-        {
-            title: 'Configuración',
-            description: 'Ajustar configuraciones del sistema',
-            icon: Settings,
-            link: '/admin/dashboard/settings',
+        }, {
+            title: 'Ver Logs',
+            description: 'Ver todos los logs del sistema',
+            icon: Activity,
+            link: '/admin/dashboard/logs',
             color: 'text-orange-600',
             bgColor: 'bg-orange-50'
-        }
+        }] : [])
     ];
 
     if (loading) {
@@ -239,101 +238,105 @@ const AdminDashboard = () => {
                     <h2 className="text-xl font-semibold text-foreground mb-4">
                         Acciones Rápidas
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         {quickActions.map((action, index) => (
-                            <Card key={index} className="p-4 hover:shadow-md transition-shadow">
+                            <Card key={index} className="p-4 hover:shadow-md transition-all duration-200">
                                 <Link to={action.link} className="block">
-                                    <div className={`p-3 rounded-lg ${action.bgColor} w-fit mb-3`}>
+                                    <div className={`flex items-center justify-center w-10 h-10 rounded-lg ${action.bgColor} mb-3`}>
                                         <action.icon className={`h-5 w-5 ${action.color}`} />
                                     </div>
-                                    <h3 className="font-semibold text-foreground mb-1">
-                                        {action.title}
-                                    </h3>
-                                    <p className="text-sm text-muted-foreground">
-                                        {action.description}
-                                    </p>
+                                    <div className="space-y-1">
+                                        <h3 className="font-semibold text-foreground text-center">
+                                            {action.title}
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground text-center">
+                                            {action.description}
+                                        </p>
+                                    </div>
                                 </Link>
                             </Card>
                         ))}
                     </div>
                 </div>
 
-                {/* Actividad reciente */}
-                <div>
-                    <h2 className="text-xl font-semibold text-foreground mb-4">
-                        Actividad Reciente
-                    </h2>
-                    <Card className="p-6">
-                        {stats.recentActivity && stats.recentActivity.length > 0 ? (
-                            <div className="space-y-4">
-                                {stats.recentActivity.map((activity) => {
-                                    // Función para obtener el ícono según la acción
-                                    const getActionIcon = (action) => {
-                                        switch (action) {
-                                            case 'CREAR':
-                                                return <Plus className="h-4 w-4" />;
-                                            case 'ACTUALIZAR':
-                                                return <Edit className="h-4 w-4" />;
-                                            case 'ELIMINAR':
-                                                return <Trash2 className="h-4 w-4" />;
-                                            case 'RESTAURAR':
-                                                return <RotateCcw className="h-4 w-4" />;
-                                            default:
-                                                return <Activity className="h-4 w-4" />;
-                                        }
-                                    };
+                {/* Actividad reciente - Solo para admins y propietarios */}
+                {(isOwner() || isAdmin()) && (
+                    <div>
+                        <h2 className="text-xl font-semibold text-foreground mb-4">
+                            Actividad Reciente
+                        </h2>
+                        <Card className="p-6">
+                            {stats.recentActivity && stats.recentActivity.length > 0 ? (
+                                <div className="space-y-4">
+                                    {stats.recentActivity.map((activity) => {
+                                        // Función para obtener el ícono según la acción
+                                        const getActionIcon = (action) => {
+                                            switch (action) {
+                                                case 'CREAR':
+                                                    return <Plus className="h-4 w-4" />;
+                                                case 'ACTUALIZAR':
+                                                    return <Edit className="h-4 w-4" />;
+                                                case 'ELIMINAR':
+                                                    return <Trash2 className="h-4 w-4" />;
+                                                case 'RESTAURAR':
+                                                    return <RotateCcw className="h-4 w-4" />;
+                                                default:
+                                                    return <Activity className="h-4 w-4" />;
+                                            }
+                                        };
 
-                                    // Función para obtener el color del borde según la tabla
-                                    const getTableColor = (tabla) => {
-                                        switch (tabla) {
-                                            case 'USERS':
-                                                return 'border-l-green-500';
-                                            case 'PLATOS':
-                                                return 'border-l-blue-500';
-                                            case 'CATEGORIAS':
-                                                return 'border-l-purple-500';
-                                            default:
-                                                return 'border-l-gray-500';
-                                        }
-                                    };
+                                        // Función para obtener el color del borde según la tabla
+                                        const getTableColor = (tabla) => {
+                                            switch (tabla) {
+                                                case 'USERS':
+                                                    return 'border-l-green-500';
+                                                case 'PLATOS':
+                                                    return 'border-l-blue-500';
+                                                case 'CATEGORIAS':
+                                                    return 'border-l-purple-500';
+                                                default:
+                                                    return 'border-l-gray-500';
+                                            }
+                                        };
 
-                                    return (
-                                        <div 
-                                            key={activity.id} 
-                                            className={`flex items-start gap-3 p-3 rounded-lg hover:bg-accent/50 border-l-4 ${getTableColor(activity.tabla)}`}
-                                        >
-                                            <div className={`flex-shrink-0 p-2 rounded-full bg-accent ${getActionColor(activity.action)}`}>
-                                                {getActionIcon(activity.action)}
+                                        return (
+                                            <div 
+                                                key={activity.id} 
+                                                className={`flex items-start gap-3 p-3 rounded-lg hover:bg-accent/50 border-l-4 ${getTableColor(activity.tabla)}`}
+                                            >
+                                                <div className={`flex-shrink-0 p-2 rounded-full bg-accent ${getActionColor(activity.action)}`}>
+                                                    {getActionIcon(activity.action)}
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="text-sm font-medium text-foreground">
+                                                        {activity.description}
+                                                    </p>
+                                                    <p className="text-xs text-muted-foreground">
+                                                        Por {activity.usuario} • {new Date(activity.timestamp).toLocaleString('es-ES', {
+                                                            day: '2-digit',
+                                                            month: '2-digit',
+                                                            year: 'numeric',
+                                                            hour: '2-digit',
+                                                            minute: '2-digit'
+                                                        })}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div className="flex-1 min-w-0">
-                                                <p className="text-sm font-medium text-foreground">
-                                                    {activity.description}
-                                                </p>
-                                                <p className="text-xs text-muted-foreground">
-                                                    Por {activity.usuario} • {new Date(activity.timestamp).toLocaleString('es-ES', {
-                                                        day: '2-digit',
-                                                        month: '2-digit',
-                                                        year: 'numeric',
-                                                        hour: '2-digit',
-                                                        minute: '2-digit'
-                                                    })}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        ) : (
-                            <div className="text-center py-8">
-                                <Activity className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                                <p className="text-muted-foreground">No hay actividad reciente</p>
-                                <p className="text-xs text-muted-foreground mt-2">
-                                    Las acciones del sistema aparecerán aquí
-                                </p>
-                            </div>
-                        )}
-                    </Card>
-                </div>
+                                        );
+                                    })}
+                                </div>
+                            ) : (
+                                <div className="text-center py-8">
+                                    <Activity className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                                    <p className="text-muted-foreground">No hay actividad reciente</p>
+                                    <p className="text-xs text-muted-foreground mt-2">
+                                        Las acciones del sistema aparecerán aquí
+                                    </p>
+                                </div>
+                            )}
+                        </Card>
+                    </div>
+                )}
             </div>
         </AdminLayout>
     );

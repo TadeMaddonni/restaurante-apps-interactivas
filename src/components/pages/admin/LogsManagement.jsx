@@ -261,29 +261,29 @@ const LogsManagement = () => {
                 {/* Lista de logs */}
                 <div className="space-y-3">
                     {logs.map((log) => (
-                        <Card key={log.id} className={`p-4 border-l-4 ${getTableColor(log.tabla)}`}>
-                            <div className="flex items-start gap-4">
+                        <Card key={log.id} className={`p-4 border-l-4 ${getTableColor(log.tabla)} space-y-2`}>
+                            <div className="flex items-start gap-3">
                                 <div className={`flex-shrink-0 p-2 rounded-full bg-accent ${getActionColor(log.accion)}`}>
                                     {getActionIcon(log.accion)}
                                 </div>
                                 
                                 <div className="flex-1 min-w-0">
-                                    <div className="flex items-start justify-between">
-                                        <div className="flex-1">
-                                            <h3 className="text-sm font-medium text-foreground">
-                                                {log.descripcion}
-                                            </h3>
-                                            <div className="flex items-center gap-4 mt-1 text-xs text-muted-foreground">
-                                                <span className="flex items-center gap-1">
-                                                    <User className="h-3 w-3" />
-                                                    {log.usuario?.nombre || 'Usuario desconocido'}
-                                                </span>
-                                                <span className="flex items-center gap-1">
-                                                    <Database className="h-3 w-3" />
-                                                    {log.tabla}
-                                                </span>
-                                                <span className="flex items-center gap-1">
-                                                    <Calendar className="h-3 w-3" />
+                                    <div className="space-y-1">
+                                        <h3 className="text-sm font-medium text-foreground truncate">
+                                            {log.descripcion}
+                                        </h3>
+                                        <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+                                            <div className="flex items-center gap-1">
+                                                <User className="h-3 w-3" />
+                                                <span className="truncate">{log.usuario?.nombre || 'Usuario desconocido'}</span>
+                                            </div>
+                                            <div className="flex items-center gap-1">
+                                                <Database className="h-3 w-3" />
+                                                <span className="truncate">{log.tabla}</span>
+                                            </div>
+                                            <div className="flex items-center gap-1">
+                                                <Calendar className="h-3 w-3" />
+                                                <span className="truncate">
                                                     {new Date(log.createdAt).toLocaleString('es-ES', {
                                                         day: '2-digit',
                                                         month: '2-digit',
@@ -292,25 +292,25 @@ const LogsManagement = () => {
                                                         minute: '2-digit'
                                                     })}
                                                 </span>
-                                                {log.ip && (
-                                                    <span className="text-xs">
-                                                        IP: {log.ip}
-                                                    </span>
-                                                )}
                                             </div>
+                                            {log.ip && (
+                                                <div className="text-xs">
+                                                    IP: <span className="truncate">{log.ip}</span>
+                                                </div>
+                                            )}
                                         </div>
-                                        
-                                        <div className="flex items-center gap-2">
-                                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                                                log.accion === 'CREAR' ? 'bg-green-100 text-green-800' :
-                                                log.accion === 'ACTUALIZAR' ? 'bg-blue-100 text-blue-800' :
-                                                log.accion === 'ELIMINAR' ? 'bg-red-100 text-red-800' :
-                                                log.accion === 'RESTAURAR' ? 'bg-purple-100 text-purple-800' :
-                                                'bg-gray-100 text-gray-800'
-                                            }`}>
-                                                {log.accion}
-                                            </span>
-                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex justify-end">
+                                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                            log.accion === 'CREAR' ? 'bg-green-100 text-green-800' :
+                                            log.accion === 'ACTUALIZAR' ? 'bg-blue-100 text-blue-800' :
+                                            log.accion === 'ELIMINAR' ? 'bg-red-100 text-red-800' :
+                                            log.accion === 'RESTAURAR' ? 'bg-purple-100 text-purple-800' :
+                                            'bg-gray-100 text-gray-800'
+                                        }`}>
+                                            {log.accion}
+                                        </span>
                                     </div>
                                     
                                     {/* Mostrar datos adicionales si están disponibles */}

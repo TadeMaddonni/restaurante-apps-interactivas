@@ -98,11 +98,7 @@ const Sidebar = ({ isOpen, onToggle, onAction }) => {
                 }
             ]
         }] : []),
-        {
-            title: 'Configuración',
-            icon: Settings,
-            path: '/admin/dashboard/settings'
-        }
+
     ];
 
     const handleLogout = () => {
@@ -159,7 +155,7 @@ const Sidebar = ({ isOpen, onToggle, onAction }) => {
                                 className={`
                                     flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors
                                     ${isActive(item.path, item.exact) 
-                                        ? 'bg-[#4B5728] text-white' 
+                                        ? 'text-black' 
                                         : 'text-sidebar-foreground hover:bg-brand-gray/20 hover:text-brand-orange'
                                     }
                                 `}
