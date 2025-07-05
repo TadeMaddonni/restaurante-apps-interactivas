@@ -3,7 +3,6 @@ import AllergenChip from './AllergenChip';
 
 const ProductCard = ({ name, image, description, price, allergens }) => {
     const allergensCount = allergens.length;
-    console.log(name, image, description, price, allergens)
     return (
         <div className='h-[300px]'>
             <div className="relative bg-white rounded-2xl shadow-lg p-4 pt-16 pb-3 w-[280px] md:w-full mx-auto min-h-[280px] flex flex-col justify-between ">
